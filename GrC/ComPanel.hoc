@@ -1,0 +1,389 @@
+// Detailed model of Cerebellar Granular Cell model
+// Multicompartmental model - Control and synaptic mechanisms panel script
+// Last updated 07-Jan-2009
+// Model developer: Shyam Diwakar M.
+// Developed at Egidio D'Angelo's Lab at Univ of Pavia
+// Code contributors: Thierry Nieus, Sergio Solinas 
+// Dept. of Gen. Physiology (Univ. of Pavia, Italy)
+// School of biotech (Amrita University, India) 
+// Email:shyam@unipv.it
+
+/* Model published as [Diwakar et al, J.Neurophysiology] 
+ Shyam Diwakar, Jacopo Magistretti, Mitchell Goldfarb, Giovanni Naldi, and Egidio D'Angelo.
+ Axonal Na+ channels ensure fast spike activation and back-propagation in cerebellar granule cells, J Neurophysiol (December 10, 2008). 
+ doi:10.1152/jn.90382.2008
+ */ 
+
+objref AmpaSchemeMenu,mfpanel,ifpanel
+
+
+Ampa_Gmax=600
+Gaba_gmax = Granule[0].synG[0].gmax
+Nmda_Gmax2_ES=16000
+GmaxCOD=Ampa_Gmax
+GmaxNES = Nmda_Gmax2_ES
+GmaxGaba = 2500
+Ampa_G = 600
+Nmda_G = Granule[0].synNS[0].gmax
+NumSin=0
+NumISin=0
+
+
+xpanel("Control Panel")
+	xlabel(" ===== Command Panel ===== ")
+	//xbutton("GrC Soma","GrcPanel()")
+	xbutton("Postsynaptic","Synapses()")
+	xbutton("Exc Presyn Parameters","PresynParam()")
+	xbutton("Inh Presyn Parameters","PresynGParam()")
+	xmenu("Mossy Fibers")
+		     xradiobutton("Homogeneous mf","HomogeneousMf()")	
+		     //xradiobutton("Heterogeneous mf","HeterogeneousMF()")
+		     xradiobutton("Mossy traces","MossyFiberTraces()")
+	xmenu()
+	xmenu("Inhibitory Synapses")
+		     xradiobutton("Homogeneous if","HomogeneousIf()")	
+		     //xradiobutton("Heterogeneous if","HeterogeneousIF()")
+		     xradiobutton("Inhib Synaptic fiber traces","InhibFiberTraces()")
+	xmenu()
+xpanel()
+
+
+// *************************** GrC parameters ***********************//
+
+objref GRCparams
+
+proc GrcPanel(){
+	GRCparams = new VBox()
+	GRCparams.intercept(1)   
+	xpanel("1")  
+	xlabel("Soma Properties")
+	xvalue("gNabar","Granule[0].soma.gnabar_GRC_NA", 1,"", 0, 0 )
+	xvalue("gKVbar","Granule[0].soma.gkbar_GRC_KV", 1,"", 0, 0 )
+	xvalue("gKAbar","Granule[0].soma.gkbar_GRC_KA", 1,"", 0, 0 )
+	xvalue("gKirbar","Granule[0].soma.gkbar_GRC_KIR", 1,"", 0, 0 )
+	xvalue("gKCabar","Granule[0].soma.gkbar_GRC_KCA", 1,"", 0, 0 )
+	xvalue("gCaHVAbar","Granule[0].soma.gcabar_GRC_CA", 1,"", 0, 0 )
+	xvalue("gKSlowbar","Granule[0].soma.gkbar_GRC_KM", 1,"", 0, 0 )
+	xvalue("gLeakage","Granule[0].soma.gl_GRC_LKG1", 1,"", 0, 0 )
+	xvalue("gGabaA","Granule[0].soma.ggaba_GRC_LKG2", 1,"", 0, 0 )
+	xpanel()
+	xpanel("2")
+	xlabel("Calcium parameters")
+	xvalue("Shell thickness","Granule[0].soma.d_GRC_CALC", 1,"", 0, 0 )
+	xvalue("Initial concentration","Granule[0].soma.cai0_GRC_CALC", 1,"", 0, 0 )
+	xvalue("Removal rate","Granule[0].soma.beta_GRC_CALC", 1,"", 0, 0 ) 
+	xpanel()
+	GRCparams.intercept(0)
+	GRCparams.map("Granule Cell Parameters")
+}
+
+
+proc UpdateAmpaNmda() {
+	Ampa_Gmax = Ampa_G
+	Nmda_Gmax2_ES = Nmda_G
+	for(i=0;i<8;i=i+1) {
+		AmpaCOD[i].gmax=Ampa_Gmax
+		NMDAS[i].gmax=Nmda_Gmax2_ES
+	}
+	for(i=0;i<4;i=i+1) {
+		Granule[0].synA[i].gmax=Ampa_Gmax
+		Granule[0].synNS[i].gmax=Nmda_Gmax2_ES
+	}
+}
+
+proc UpdateGaba() {
+	for(i=0;i<8;i=i+1) {
+		GRC_GABA[i].gmax=GmaxGaba
+		GRC_GABA[i].U=0.34
+	}
+	for(i=0;i<4;i=i+1) {
+		Granule[0].synG[i].gmax=GmaxGaba
+	}
+}
+
+// ************************************* Presynpatic-Exc and Inh *********************************
+
+
+proc PresynParam(){
+	Tau_rec=Granule[0].synA[0].tau_rec
+	Tau_facil=Granule[0].synA[0].tau_facil
+	Tau_1=Granule[0].synA[0].tau_1
+	U=Granule[0].synA[0].U
+	xpanel("PRESYNAPTIC PARAMETERS")   
+		xlabel("Exc Presynaptic parameters")
+		xvalue("T_transition (ms)","Tau_1", 1,"UpDatePre()", 0, 0 )
+		xvalue("T_recovery (ms)","Tau_rec", 1,"UpDatePre()", 0, 0 )
+		xvalue("T_facilita (ms)","Tau_facil", 1,"UpDatePre()", 0, 0 )
+		xvalue("Release probability","U", 1,"UpDatePre()", 0, 0 )
+	xpanel()
+}
+
+proc UpDatePre(){
+	for (i=0;i<NumSin+4;i=i+1) {
+		AmpaCOD[i].tau_rec=Tau_rec
+		AmpaCOD[i].tau_facil=Tau_facil
+		AmpaCOD[i].tau_1=Tau_1
+		AmpaCOD[i].U=U
+		
+
+		NMDAS[i].tau_rec=Tau_rec
+		NMDAS[i].tau_facil=Tau_facil
+		NMDAS[i].tau_1=Tau_1
+		NMDAS[i].U=U
+
+	}
+}
+
+proc PresynGParam(){
+	Tau_rec_if=Granule[0].synG[0].tau_rec
+	Tau_facil_if=Granule[0].synG[0].tau_facil
+	Tau_1_if=Granule[0].synG[0].tau_1
+	U_if=Granule[0].synG[0].U
+	xpanel("If PRESYNAPTIC PARAMETERS")   
+		xvalue("T_transition (ms)","Tau_1_if", 1,"UpDateGPre()", 0, 0 )
+		xvalue("T_recovery (ms)","Tau_rec_if", 1,"UpDateGPre()", 0, 0 )
+		xvalue("T_facilita (ms)","Tau_facil_if", 1,"UpDateGPre()", 0, 0 )
+		xvalue("Release probability","U_if", 1,"UpDateGPre()", 0, 0 )
+	xpanel()
+}
+
+proc UpDateGPre(){
+	for (ifn=0;ifn<NumISin+4;ifn=ifn+1) {
+		GRC_GABA[ifn].tau_rec=Tau_rec_if
+		GRC_GABA[ifn].tau_facil=Tau_facil_if
+		GRC_GABA[ifn].tau_1=Tau_1_if
+		GRC_GABA[ifn].U=U_if
+		
+	}
+}
+
+// ******************************** Mossy Fiber  ************************************// 
+
+objref grafici[8]
+ngraph = 0
+
+proc addgraph() { local ii	
+	ngraph = ngraph+1
+	ii = ngraph-1
+	grafici[ii] = new Graph(0)
+	grafici[ii].size(0,tstop,$2,$3)
+	grafici[ii].view(0,0,150,48,0,48,150,48)
+	grafici[ii].xaxis()
+	grafici[ii].yaxis()
+	grafici[ii].addvar($s1,1,0)
+	grafici[ii].save_name("graphList[0].")
+	graphList[0].append(grafici[ii])
+	grafici[ii].exec_menu("View = plot")
+	grafici[ii].flush()
+}
+
+
+proc MossyFiberTraces(){
+	mfpanel = new VBox()
+	mfpanel.intercept(1)
+	xpanel("Mossy fibers traces")   
+		addgraph("Mossy[0].y",0,2)
+		addgraph("Mossy[1].y",0,2)
+		addgraph("Mossy[2].y",0,2)
+		addgraph("Mossy[3].y",0,2)
+	xpanel()
+	mfpanel.intercept(0)
+	mfpanel.map("Mossy Fiber traces")
+}
+
+NumSin = 0
+NumISin = 0
+
+proc HomogeneousMf(){
+	xpanel("MOSSY PARAMETERS")   
+	xlabel("Homogeneous mossy fibers")
+	InSpike=10
+	InBurst=1e5
+	NumSpikes=1
+	StartIn=20
+	EndIn=1e10
+	Rumore=0
+	NumSin=0
+	delay=Mossy[0].delay		
+	UpDateMossyO()
+	xvalue("Number of synapses ","NumSin", 1,"UpDateMossyO()", 0, 0 )
+	xvalue("Interspike interval (ms)","InSpike", 1,"UpDateMossyO()", 0, 0 )
+	xvalue("Interburst interval (ms)","InBurst", 1,"UpDateMossyO()", 0, 0 )
+	xvalue("Spikes per burst        ","NumSpikes", 1,"UpDateMossyO()", 0, 0 )
+	xvalue("Begin of the Input (ms)","StartIn", 1,"UpDateMossyO()", 0, 0 )
+	xvalue("End of the Input (ms)","EndIn", 1,"UpDateMossyO()", 0, 0 )
+	xpanel()
+}
+
+proc HeterogeneousMF(){
+	xpanel("Mossy heterogeneus")   
+	xlabel("Heterogeneous mossy fibers")
+
+	xvalue("Interspike interval (ms)","Mossy[0].fast_invl", 1,"", 0, 0 )
+	xvalue("Interburst interval (ms)","Mossy[0].slow_invl", 1,"", 0, 0 )
+	xvalue("Spikes per burst","Mossy[0].burst_len", 1,"", 0, 0 )
+	xvalue("Begin of the Input (ms)","Mossy[0].start", 1,"", 0, 0 )
+	xvalue("End of the Input (ms)","Mossy[0].end", 1,"", 0, 0 )
+
+	xlabel("Mossy 2")
+	xvalue("Interspike interval (ms)","Mossy[1].fast_invl", 1,"", 0, 0 )
+	xvalue("Interburst interval (ms)","Mossy[1].slow_invl", 1,"", 0, 0 )
+	xvalue("Spikes per burst","Mossy[1].burst_len", 1,"", 0, 0 )
+	xvalue("Begin of the Input (ms)","Mossy[1].start", 1,"", 0, 0 )
+	xvalue("End of the Input (ms)","Mossy[1].end", 1,"", 0, 0 )
+
+	xlabel("Mossy 3")
+	xvalue("Interspike interval (ms)","Mossy[2].fast_invl", 1,"", 0, 0 )
+	xvalue("Interburst interval (ms)","Mossy[2].slow_invl", 1,"", 0, 0 )
+	xvalue("Spikes per burst","Mossy[2].burst_len", 1,"", 0, 0 )
+	xvalue("Begin of the Input (ms)","Mossy[2].start", 1,"", 0, 0 )
+	xvalue("End of the Input (ms)","Mossy[2].end", 1,"", 0, 0 )
+
+	xlabel("Mossy 4")
+	xvalue("Interspike interval (ms)","Mossy[3].fast_invl", 1,"", 0, 0 )
+	xvalue("Interburst interval (ms)","Mossy[3].slow_invl", 1,"", 0, 0 )
+	xvalue("Spikes per burst","Mossy[3].burst_len", 1,"", 0, 0 )
+	xvalue("Begin of the Input (ms)","Mossy[3].start", 1,"", 0, 0 )
+	xvalue("End of the Input (ms)","Mossy[3].end", 1,"", 0, 0 )
+
+	xpanel()
+}
+
+proc UpDateMossyO(){
+	print "UpDating Mossy parameters"
+	for(i=0;i<4;i=i+1) {	
+		Mossy[i].fast_invl=InSpike
+		Mossy[i].slow_invl=InBurst
+		Mossy[i].burst_len=NumSpikes
+		Mossy[i].start=StartIn
+		Mossy[i].noise=Rumore
+		Mossy[i].delay=delay
+		if (i<NumSin) {
+			Mossy[i].end=EndIn
+		} else {
+			Mossy[i].end=0
+		}
+	}
+}
+ 
+
+// *************Inhibitory Synaptic Fiber**************************// 
+
+objref graffz[8]
+ngraff = 0
+
+proc addgraph() { local ix	
+	ngraff = ngraff+1
+	ix = ngraff-1
+	graffz[ix] = new Graph(0)
+	graffz[ix].size(0,tstop,$2,$3)
+	graffz[ix].view(0,0,150,48,0,48,150,48)
+	graffz[ix].xaxis()
+	graffz[ix].yaxis()
+	graffz[ix].addvar($s1,1,0)
+	graffz[ix].save_name("graphList[1].")
+	graphList[1].append(graffz[ix])
+	graffz[ix].exec_menu("View = plot")
+	graffz[ix].flush()
+}
+
+
+proc InhibFiberTraces(){
+	ifpanel = new VBox()
+	ifpanel.intercept(1)
+	xpanel("Inhib fibers traces")   
+		addgraph("Inhib[0].y",0,2)
+		addgraph("Inhib[1].y",0,2)
+		addgraph("Inhib[2].y",0,2)
+		addgraph("Inhib[3].y",0,2)
+	xpanel()
+	ifpanel.intercept(0)
+	ifpanel.map("Inhibitory synaptic Fiber traces")
+}
+
+proc HomogeneousIf(){
+	xpanel("Inhib PARAMETERS")   
+	xlabel("Homogeneous inhib fibers")
+	IInSpike=10
+	IInBurst=1e10
+	INumSpikes=1
+	IStartIn=24
+	IEndIn=1e10
+	IRumore=Inhib[0].noise	
+	NumISin=0
+	Idelay=Inhib[0].delay	
+	UpDateInhibO()
+	xvalue("Number of synapses ","NumISin", 1,"UpDateInhibO()", 0, 0 )
+	xvalue("Interspike interval (ms)","IInSpike", 1,"UpDateInhibO()", 0, 0 )
+	xvalue("Interburst interval (ms)","IInBurst", 1,"UpDateInhibO()", 0, 0 )
+	xvalue("Spikes per burst        ","INumSpikes", 1,"UpDateInhibO()", 0, 0 )
+	xvalue("Begin of the Input (ms)","IStartIn", 1,"UpDateInhibO()", 0, 0 )
+	xvalue("End of the Input (ms)","IEndIn", 1,"UpDateInhibO()", 0, 0 )
+	xpanel()
+}
+
+proc HeterogeneousIF(){
+	xpanel("Inhib heterogeneus")   
+	xlabel("Heterogeneous inhib fibers")
+
+	xvalue("Interspike interval (ms)","Inhib[0].fast_invl", 1,"", 0, 0 )
+	xvalue("Interburst interval (ms)","Inhib[0].slow_invl", 1,"", 0, 0 )
+	xvalue("Spikes per burst","Inhib[0].burst_len", 1,"", 0, 0 )
+	xvalue("Begin of the Input (ms)","Inhib[0].start", 1,"", 0, 0 )
+	xvalue("End of the Input (ms)","Inhib[0].end", 1,"", 0, 0 )
+	
+	xlabel("Inhib 2")
+	xvalue("Interspike interval (ms)","Inhib[1].fast_invl", 1,"", 0, 0 )
+	xvalue("Interburst interval (ms)","Inhib[1].slow_invl", 1,"", 0, 0 )
+	xvalue("Spikes per burst","Inhib[1].burst_len", 1,"", 0, 0 )
+	xvalue("Begin of the Input (ms)","Inhib[1].start", 1,"", 0, 0 )
+	xvalue("End of the Input (ms)","Inhib[1].end", 1,"", 0, 0 )
+	
+	xlabel("Inhib 3")
+	xvalue("Interspike interval (ms)","Inhib[2].fast_invl", 1,"", 0, 0 )
+	xvalue("Interburst interval (ms)","Inhib[2].slow_invl", 1,"", 0, 0 )
+	xvalue("Spikes per burst","Inhib[2].burst_len", 1,"", 0, 0 )
+	xvalue("Begin of the Input (ms)","Inhib[2].start", 1,"", 0, 0 )
+	xvalue("End of the Input (ms)","Inhib[2].end", 1,"", 0, 0 )
+	
+	xlabel("Inhib 4")
+	xvalue("Interspike interval (ms)","Inhib[3].fast_invl", 1,"", 0, 0 )
+	xvalue("Interburst interval (ms)","Inhib[3].slow_invl", 1,"", 0, 0 )
+	xvalue("Spikes per burst","Inhib[3].burst_len", 1,"", 0, 0 )
+	xvalue("Begin of the Input (ms)","Inhib[3].start", 1,"", 0, 0 )
+	xvalue("End of the Input (ms)","Inhib[3].end", 1,"", 0, 0 )
+	
+	xpanel()
+}
+
+proc UpDateInhibO(){
+	print "UpDating Inhib-Synaptic parameters"
+	for(kk=0;kk<4;kk=kk+1) {	
+		Inhib[kk].fast_invl=IInSpike
+		Inhib[kk].slow_invl=IInBurst
+		Inhib[kk].burst_len=INumSpikes
+		Inhib[kk].start=IStartIn
+		Inhib[kk].noise=IRumore
+		Inhib[kk].delay=Idelay
+		if (kk<NumISin) {
+			Inhib[kk].end=IEndIn
+		} else {
+			Inhib[kk].end=0
+		}
+	}
+}
+
+proc Synapses() {
+		xpanel("Postsynaptic params")
+		xvalue("AMPA Gmax (pS)","Ampa_G", 1,"UpdateAmpaNmda()", 0, 0 )
+		xvalue("NMDA Gmax (pS)","Nmda_G", 1,"UpdateAmpaNmda()", 0, 0 )
+		xvalue("GABA Gmax","Gaba_gmax",1,"UpdateGaba()",0,0)
+		xpanel()
+}
+
+
+//Set up initials
+UpDateMossyO()
+UpDateInhibO()
+UpdateGaba()
+UpdateAmpaNmda()

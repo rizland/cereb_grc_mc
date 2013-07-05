@@ -1,0 +1,446 @@
+// Detailed model of Cerebellar Granular Cell model
+// New Parameters file - to set and distribute ion channels 
+// Last updated 07-Jan-2009
+// Model developer: Shyam Diwakar M.
+// Developed at Egidio D'Angelo's Lab at Univ of Pavia
+// Code contributors: Thierry Nieus, Sergio Solinas 
+// Dept. of Gen. Physiology (Univ. of Pavia, Italy)
+// School of biotech (Amrita University, India) 
+// Email:shyam@unipv.it
+
+/* Model published as [Diwakar et al, J.Neurophysiology] 
+ Shyam Diwakar, Jacopo Magistretti, Mitchell Goldfarb, Giovanni Naldi, and Egidio D'Angelo.
+ Axonal Na+ channels ensure fast spike activation and back-propagation in cerebellar granule cells, J Neurophysiol (December 10, 2008). 
+ doi:10.1152/jn.90382.2008
+ */ 
+
+
+
+//A Panel for Channels and someof their controls
+
+objref panel
+panel = new VBox()
+
+//new stuff 10 May 2005
+Nag = Granule[0].soma.gnabar_GRC_NA
+Kvg = Granule[0].soma.gkbar_GRC_KV
+Kmg = Granule[0].soma.gkbar_GRC_KM
+glL = 5.68e-5
+ell = -16.5
+
+ndend = 4
+nsg = 5
+naxon = 30
+ncomp = 1+(4*ndend)+nsg+naxon
+
+Rappaxon = ((9.76*9.76)/(naxon*Granule[0].axon[0].L*Granule[0].axon[0].diam))
+Granule[0].soma.gnabar_GRC_NA = 0
+Granule[0].soma.gkbar_GRC_KV = 0
+
+
+KirGmax=0.0009  //Standard reference value - Kir
+KaGmax=0.0032  //Standard reference value -Ka
+CaGmax=0.00046 //Standard reference value - Ca
+KCaGmax=0.003 //Standard reference value - KCa
+beta=0.6 //Standard reference value - removal rate
+
+inicon=0.001 //Standard reference value - Initial condition
+
+//Configuration mode flags for state/compartment selection for ion channel distribution 
+Camode1 =0
+Camode2 =0
+Camode3 =0
+Camode4 =1
+CamodeS =0
+KCamode1 =0
+KCamode2 =0
+KCamode3 =0
+KCamode4 =1
+KCamodeS=0
+Kirmode1 =1
+Kirmode2 =1
+Kirmode3 =0
+Kirmode4 =0
+KirmodeS =0
+Kamode1 =0
+Kamode2 =0
+Kamode3 =0
+Kamode4 =0
+KamodeS =1
+
+//Compartment area estimation
+SomaArea=Granule[0].soma.L*Granule[0].soma.diam*PI
+Dend12Area=Granule[0].dend_1[0].L*Granule[0].dend_1[0].diam*PI
+Dend34Area=Granule[0].dend_4[0].L*Granule[0].dend_4[0].diam*PI
+SomascArea=PI*9.76*9.76
+
+//Scale factors for compartaments
+RappSomaDend12=SomascArea/(4*Dend12Area)
+RappSomaDend34=SomascArea/(4*Dend34Area)
+RappSomaNew=SomascArea/SomaArea
+RappSomahill=SomascArea/(3.75*PI) 
+RappAH = 3.75/(naxon*Granule[0].axon[0].L*Granule[0].axon[0].diam)
+
+
+gG = Granule[0].soma.ggaba_GRC_LKG2
+
+// Functions to identify multiplecompartments - ignore description 
+proc alpKCaM() {
+
+	alpKCa = ($1==1)+($2==1)+($3==1)+($4==1)+($5==1)
+}
+
+proc alpCaM() {
+	alpCa = ($1==1)+($2==1)+($3==1)+($4==1)+($5==1)
+}
+
+proc alpKaM() {
+	alpKa = ($1==1)+($2==1)+($3==1)+($4==1)+($5==1)
+}
+
+proc alpKirM() {
+	alpKir = ($1==1)+($2==1)+($3==1)+($4==1)+($5==1)
+}
+
+gamma = 0.5  //Percentage of NA/Kv in axon-hillock
+
+//For specific dendrite, axon and Hillock manipulations
+NagH = Nag
+KvgH = Kvg
+NagA = Nag
+KvgA = Kvg
+KCaD = KCaGmax
+CaD = CaGmax
+
+DendFact=1 //default morphology scaling ratio
+
+KaRapp = KaGmax
+KirRapp = KirGmax
+CaRapp = CaGmax
+KCaRapp = KCaGmax
+
+//For Dendritic Morphology Scaling - Unused
+proc DendGeomFact(){
+	
+	for (i=0;i<4;i=i+1) {
+		Granule[0].dend_1[i].diam=0.75/DendFact
+		Granule[0].dend_2[i].diam=0.75/DendFact
+		Granule[0].dend_3[i].diam=0.75/DendFact
+		Granule[0].dend_4[i].diam=0.75/DendFact
+		Granule[0].dend_1[i].L=5*DendFact
+		Granule[0].dend_2[i].L=5*DendFact
+		Granule[0].dend_3[i].L=2.5*DendFact
+		Granule[0].dend_4[i].L=2.5*DendFact
+	}
+	//print "L1= ",Granule[0].dend_1[0].L," L2= ",Granule[0].dend_2[0].L," L3= ",Granule[0].dend_3[0].L," L4= ",Granule[0].dend_4[0].L
+	//print "D1=D2=D3=D4= ",Granule[0].dend_1[0].diam
+}
+
+//Updating leakage current
+proc glUpdate() {
+	Granule[0].soma.gl_GRC_LKG1 = glL*(RappSomaNew)*(2/3)
+	Granule[0].soma.el_GRC_LKG1 = ell
+	for(i=0;i<5;i=i+1) {
+		Granule[0].hillock[i].gl_GRC_LKG1=glL*(RappSomahill)*(1/15)
+		Granule[0].hillock[i].el_GRC_LKG1=ell
+	}
+	for(i=0;i<naxon;i=i+1) {
+		Granule[0].axon[i].gl_GRC_LKG1=glL*(Rappaxon)*(1/30)
+		Granule[0].axon[i].el_GRC_LKG1 =ell
+	}
+	for(i=0;i<4;i=i+1) {
+		Granule[0].dend_1[i].gl_GRC_LKG1=glL*(RappSomaDend12)*(1/16)
+		Granule[0].dend_2[i].gl_GRC_LKG1=glL*(RappSomaDend12)*(1/16)
+		Granule[0].dend_3[i].gl_GRC_LKG1=glL*(RappSomaDend34)*(1/16)
+		Granule[0].dend_4[i].gl_GRC_LKG1=glL*(RappSomaDend34)*(1/16)
+		Granule[0].dend_1[i].el_GRC_LKG1=ell
+		Granule[0].dend_2[i].el_GRC_LKG1=ell
+		Granule[0].dend_3[i].el_GRC_LKG1=ell
+		Granule[0].dend_4[i].el_GRC_LKG1=ell
+	}
+}
+
+proc gGUpdate() {
+	Granule[0].soma.ggaba_GRC_LKG2 = 0
+	for(i=0;i<4;i=i+1) {
+		Granule[0].dend_1[i].ggaba_GRC_LKG2=gG*(1/ndend)*(RappSomaDend12)
+		Granule[0].dend_2[i].ggaba_GRC_LKG2=gG*(1/ndend)*(RappSomaDend12)
+		Granule[0].dend_3[i].ggaba_GRC_LKG2=gG*(1/ndend)*(RappSomaDend34)
+		Granule[0].dend_4[i].ggaba_GRC_LKG2=gG*(1/ndend)*(RappSomaDend34)
+	}
+}
+
+
+//Updating Calcium buffer removal rate 
+proc UpdateBeta() {
+             //print "Updating Removal Rate of Calcium ----"
+             for (i=0;i<4;i=i+1) {
+                  Granule[0].dend_1[i].beta_GRC_CALC = beta
+                  //print "dend_1 [",i,"]beta =",Granule[0].dend_1[i].beta_GRC_CALC,"                |"
+                  Granule[0].dend_2[i].beta_GRC_CALC = beta
+                  //print "dend_2 [",i,"]beta =",Granule[0].dend_2[i].beta_GRC_CALC,"                |"
+                  Granule[0].dend_3[i].beta_GRC_CALC = beta
+                  //print "dend_3 [",i,"]beta =",Granule[0].dend_3[i].beta_GRC_CALC,"                |"
+                  Granule[0].dend_4[i].beta_GRC_CALC = beta
+                  //print "dend_4 [",i,"]beta =",Granule[0].dend_4[i].beta_GRC_CALC,"                |"
+
+             }
+             //print "Update Complete ---------------------"
+}
+//Updating Calcium shell thickness
+proc UpdateShelld() {
+             //print "Updating Calcium Shell Thickness----"
+             /*for (i=0;i<4;i=i+1) {
+                  Granule[0].dend_1[i].d_GRC_CALC = shell*RappSomaDend12
+                  print "dend_1 [",i,"]d =",Granule[0].dend_1[i].d_GRC_CALC,"                |"
+                  Granule[0].dend_2[i].d_GRC_CALC = shell*RappSomaDend12
+                  print "dend_2 [",i,"]d =",Granule[0].dend_2[i].d_GRC_CALC,"                |"
+                  Granule[0].dend_3[i].d_GRC_CALC = shell*RappSomaDend34
+                  print "dend_3 [",i,"]d =",Granule[0].dend_3[i].d_GRC_CALC,"                |"
+                  Granule[0].dend_4[i].d_GRC_CALC = shell*RappSomaDend34
+                  print "dend_4 [",i,"]d =",Granule[0].dend_4[i].d_GRC_CALC,"                |"
+
+             }*/
+	     //print "Improbable Update Terminating ---------------------"
+}
+
+//Updating initial Concentration 
+proc UpdateInicon() {
+             //print "Updating Initial Ca ion Conc--------"
+             for (i=0;i<4;i=i+1) {
+                  Granule[0].dend_1[i].cai0_GRC_CALC = inicon
+                  //print "dend_1 [",i,"]cai0 =",Granule[0].dend_1[i].cai0_GRC_CALC,"                |"
+                  Granule[0].dend_2[i].cai0_GRC_CALC = inicon
+                  //print "dend_2 [",i,"]cai0 =",Granule[0].dend_2[i].cai0_GRC_CALC,"                |"
+                  Granule[0].dend_3[i].cai0_GRC_CALC = inicon
+                  //print "dend_3 [",i,"]cai0 =",Granule[0].dend_3[i].cai0_GRC_CALC,"                |"
+                  Granule[0].dend_4[i].cai0_GRC_CALC = inicon
+                  //print "dend_4 [",i,"]cai0 =",Granule[0].dend_4[i].cai0_GRC_CALC,"                |"
+
+             }
+             //print "Update Complete ---------------------"
+}
+
+//Reset functions: resets to old state when checkbox is unticked 
+proc resetgs() {
+		Granule[0].soma.gkbar_GRC_KA = 0//KaRapp
+		Granule[0].soma.gcabar_GRC_CA = 0
+		Granule[0].soma.gkbar_GRC_KIR = 0//KirRapp
+		Granule[0].soma.gkbar_GRC_KCA = 0
+}
+	
+proc resetgd1() {
+		for(i=0;i<4;i=i+1) {
+			Granule[0].dend_1[i].gkbar_GRC_KA = 0
+			Granule[0].dend_1[i].gcabar_GRC_CA = 0
+			Granule[0].dend_1[i].gkbar_GRC_KIR = 0
+			Granule[0].dend_1[i].gkbar_GRC_KCA = 0
+		}
+}
+proc resetgd2() {	
+		for(i=0;i<4;i=i+1) {
+			Granule[0].dend_2[i].gkbar_GRC_KA = 0
+			Granule[0].dend_2[i].gcabar_GRC_CA = 0
+			Granule[0].dend_2[i].gkbar_GRC_KIR = 0
+			Granule[0].dend_2[i].gkbar_GRC_KCA = 0
+		}
+}
+proc resetgd3() {
+		for(i=0;i<4;i=i+1) {
+			Granule[0].dend_3[i].gkbar_GRC_KA = 0
+			Granule[0].dend_3[i].gcabar_GRC_CA = 0
+			Granule[0].dend_3[i].gkbar_GRC_KIR = 0
+			Granule[0].dend_3[i].gkbar_GRC_KCA = 0
+		}
+}
+proc resetgd4() {
+		for(i=0;i<4;i=i+1) {
+			Granule[0].dend_4[i].gkbar_GRC_KA = 0
+			Granule[0].dend_4[i].gcabar_GRC_CA = 0 
+			Granule[0].dend_4[i].gkbar_GRC_KIR = 0
+			Granule[0].dend_4[i].gkbar_GRC_KCA = 0 
+		}
+}	
+proc resetg() {
+	if($1==0) {
+		resetgs()
+	}
+	if($2==0) {
+		resetgd1()
+	}
+	if($3==0) {
+		resetgd2()
+	}
+	if($4==0) {
+		resetgd3()
+	}
+	if($5==0) {
+		resetgd4()
+	}
+}
+
+proc KaU(){
+	//print "Refresh Ka"
+	alpKaM($1,$2,$3,$4,$5)
+	if(alpKa>=1) {
+		for (i=0;i<4;i=i+1) {
+			Granule[0].soma.gkbar_GRC_KA=KaGmax*(1/alpKa)*RappSomaNew*$1
+			Granule[0].dend_1[i].gkbar_GRC_KA=KaGmax*RappSomaDend12*(1/alpKa)*$2
+			Granule[0].dend_2[i].gkbar_GRC_KA=KaGmax*RappSomaDend12*(1/alpKa)*$3
+			Granule[0].dend_3[i].gkbar_GRC_KA=KaGmax*RappSomaDend34*(1/alpKa)*$4
+			Granule[0].dend_4[i].gkbar_GRC_KA=KaGmax*RappSomaDend34*(1/alpKa)*$5
+		}
+	}
+}
+
+proc CaU(){
+	//print "Refresh Ca"
+	alpCaM($1,$2,$3,$4,$5)
+	if(alpCa>=1) {
+		for (i=0;i<4;i=i+1) {
+			Granule[0].soma.gcabar_GRC_CA=CaGmax*(1/alpKa)*RappSomaNew*$1
+			Granule[0].dend_1[i].gcabar_GRC_CA=CaD*RappSomaDend12*(1/alpCa)*$2
+			Granule[0].dend_2[i].gcabar_GRC_CA=CaD*RappSomaDend12*(1/alpCa)*$3
+			Granule[0].dend_3[i].gcabar_GRC_CA=CaD*RappSomaDend34*(1/alpCa)*$4
+			Granule[0].dend_4[i].gcabar_GRC_CA=CaD*RappSomaDend34*(1/alpCa)*$5		
+		}
+	}
+}
+proc KCaU(){
+	//print "Refresh KCa"
+	//if($1==1) ->addstuff to modify shell d in soma
+	alpKCaM($1,$2,$3,$4,$5)
+	if(alpKCa>=1) {
+		for (i=0;i<4;i=i+1) {
+			Granule[0].soma.gkbar_GRC_KCA=KCaD*(1/alpKCa)*RappSomaNew*$1
+			Granule[0].dend_1[i].gkbar_GRC_KCA=KCaD*RappSomaDend12*(1/alpKCa)*$2
+			Granule[0].dend_2[i].gkbar_GRC_KCA=KCaD*RappSomaDend12*(1/alpKCa)*$3
+			Granule[0].dend_3[i].gkbar_GRC_KCA=KCaD*RappSomaDend34*(1/alpKCa)*$4
+			Granule[0].dend_4[i].gkbar_GRC_KCA=KCaD*RappSomaDend34*(1/alpKCa)*$5		
+		}
+	}
+}
+
+proc KirU(){
+	//print "Refresh Kir"
+	alpKirM($1,$2,$3,$4,$5)
+	if(alpKir>=1) {
+		for (i=0;i<4;i=i+1) {
+			Granule[0].soma.gkbar_GRC_KIR=KirGmax*(1/alpKir)*RappSomaNew*$1
+			Granule[0].dend_1[i].gkbar_GRC_KIR=KirGmax*RappSomaDend12*(1/alpKir)*$2
+			Granule[0].dend_2[i].gkbar_GRC_KIR=KirGmax*RappSomaDend12*(1/alpKir)*$3
+			Granule[0].dend_3[i].gkbar_GRC_KIR=KirGmax*RappSomaDend34*(1/alpKir)*$4
+			Granule[0].dend_4[i].gkbar_GRC_KIR=KirGmax*RappSomaDend34*(1/alpKir)*$5		
+		}
+	}
+}
+
+//for Na in axon/hillock
+
+proc NaAUpdate() {
+	//print "Updating Na in axon"
+	for(i=0;i<naxon;i=i+1) {
+		access Granule[0].axon[i]
+		Granule[0].axon[i].gnabar_GRC_NA = NagA*(1-gamma)*Rappaxon-0.00232//*(1/naxon)//axon n hillock
+		Granule[0].axon[i].gkbar_GRC_KV = KvgA*(1-gamma)*Rappaxon-0.00232//*(1/naxon)
+	}
+}
+proc NaHUpdate() {
+	//print "Updating Na in hillock"
+	for(i=0;i<5;i=i+1) {
+		access Granule[0].hillock[i]
+		Granule[0].hillock[i].gnabar_GRC_NA = NagH*gamma*RappSomahill-0.00243
+		Granule[0].hillock[i].gkbar_GRC_KV = KvgH*gamma*RappSomahill-0.00243
+	}
+}
+
+UpdateBeta()
+UpdateInicon()
+
+betad = 0.8
+glUpdate()
+//For axon and Hill
+	NagH = Nag
+	KvgH = Kvg
+	NagA = Nag
+	KvgA = Kvg
+	KcaB = KCaGmax
+	CaB = CaGmax
+
+
+proc UpdateHA() {
+	//print "Updating Hillock-Axon Conductances"
+	
+	glUpdate()
+	NaHUpdate()
+	NaAUpdate()
+}
+	
+//Activate default set
+resetg(0,0,0,0,0)
+NaAUpdate()
+NaHUpdate()
+glUpdate()
+gGUpdate()
+KaU(1,0,0,0,0)
+CaU(0,0,0,0,1)
+KCaU(0,0,0,0,1)
+KirU(1,0,0,0,0)
+
+//Dendritic params
+KcaDe = KCaGmax
+CaDe = CaGmax
+
+proc CaDup() {
+	//print "Updating Ca/KCa in dendrite(s)"
+	for(i=0;i<ndend;i=i+1) {
+		access Granule[0].dend_4[i]
+		Granule[0].dend_4[i].gcabar_GRC_CA = CaDe*RappSomaDend34
+		Granule[0].dend_4[i].gkbar_GRC_KCA = KcaDe*RappSomaDend34
+
+	}
+}
+
+CaDup()
+glUpdate()
+gGUpdate()
+inicon=0.00225
+UpdateInicon()
+beta=0.6
+UpdateBeta()
+NagH=0.019  //for spike amplitude
+NaAUpdate()
+NaHUpdate()
+
+// Setting low leak in passive compartments
+Granule[0].branch0.gl_GRC_LKG1=0.000000005
+Granule[0].branch1.gl_GRC_LKG1=0.000000005
+Granule[0].branch2.gl_GRC_LKG1=0.000000005
+Granule[0].branch3.gl_GRC_LKG1=0.000000005
+
+//Ion channel properties gmax panel
+panel.intercept(1)
+xpanel("1")
+	xlabel("***Na/Kv parameters***")
+	xvalue("H/A ratio","gamma", 1,"UpdateHA()", 0, 0 )
+	xlabel("Parameters of hillock compartments")
+	xvalue("gNabar","NagH", 1,"NaHUpdate()", 0, 0 )
+	xvalue("gKvbar","KvgH", 1,"NaHUpdate()", 0, 0 )
+	xlabel("Parameters of axon compartments")
+	xvalue("gNabar","NagA", 1,"NaAUpdate()", 0, 0 )
+	xvalue("gKvbar","KvgA", 1,"NaAUpdate()", 0, 0 )	
+	xlabel("***Calcium params***")	
+	xvalue("gCabar","CaDe", 1,"CaDup()", 0, 0 )
+	xvalue("gKCabar","KcaDe", 1,"CaDup()", 0, 0 )
+	xlabel("***Other K+ params***")
+	xvalue("Ka-gmax","KaGmax", 1,"KaU(1,0,0,0,0)", 0, 0 )
+	xvalue("Kir-gmax","KirGmax", 1,"KirU(1,0,0,0,0)", 0, 0 )
+	xlabel("***Leakage params***")
+	xvalue("Lkg1","glL", 1,"glUpdate()", 0, 0 )
+	xvalue("Lkg2","gG", 1,"gGUpdate()", 0, 0)
+xpanel()
+panel.intercept(0)
+panel.map("Channels-n-Controls")
+
+UpdateHA()
+

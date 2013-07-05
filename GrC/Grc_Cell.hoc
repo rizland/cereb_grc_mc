@@ -1,0 +1,371 @@
+// Detailed model of Cerebellar Granular Cell model
+// Multicompartmental model - cell template 
+// Last updated 07-Jan-2009
+// Model developer: Shyam Diwakar M.
+// Developed at Egidio D'Angelo's Lab at Univ of Pavia
+// Code contributors: Thierry Nieus, Sergio Solinas 
+// Dept. of Gen. Physiology (Univ. of Pavia, Italy)
+// School of biotech (Amrita University, India) 
+// Email:shyam@unipv.it
+
+/* Model published as [Diwakar et al, J.Neurophysiology] 
+ Shyam Diwakar, Jacopo Magistretti, Mitchell Goldfarb, Giovanni Naldi, and Egidio D'Angelo.
+ Axonal Na+ channels ensure fast spike activation and back-propagation in cerebellar granule cells, J Neurophysiol (December 10, 2008). 
+ doi:10.1152/jn.90382.2008
+ */ 
+ 
+begintemplate GrC 
+
+	          ndend = 4 
+              nsg = 5
+	      	  naxon = 30	
+	 
+              public soma,synA,synNS,synG,Area,CC,dend_1,dend_2,dend_3,dend_4,hillock,axon 
+              public connect_pre,rescale,Us 
+              public list_go_grc,list_con_inhib 
+	          public branch0,branch1,branch2,branch3
+              public SpikeTrain 
+              create soma,hillock[1],axon[1],dend_1[1],dend_2[1],dend_3[1],dend_4[1],branch0,branch1,branch2,branch3 
+              objref synNS[4],synA[4],synG[4] 
+              objref list_go_grc,list_con_inhib 
+              objref Inhib[4],CC
+	    
+	    	  objref SpikeTrain,nil,netcon 
+		 
+              proc init() {  
+				list_go_grc=new List() 
+				list_con_inhib=new List() 
+				if(numarg()==4){ndend=$1 nsg =$2 nbut=$3 naxon=$4} else {ndend=4 nsg=5 nbut=20 naxon=30} 
+				create soma, hillock[nsg], axon[naxon], dend_1[ndend], dend_2[ndend], dend_3[ndend], dend_4[ndend],branch0,branch1,branch2,branch3  
+			
+				soma {
+			     access soma 
+                             nseg = 1 
+                             diam = 5.8//6.06 
+                             L = 5.8//6.16 
+                             cm = 1 
+                             Ra = 100
+			     celsius=30
+			         
+			     // Soma Channels 
+                             insert GRC_LKG1 
+                             insert GRC_LKG2
+			    			 ggaba_GRC_LKG2 = 3e-05
+ 	                         insert GRC_KIR 
+                             insert GRC_KA 
+                             insert GRC_KM 
+                              
+ 	 					     usetable_GRC_KA 	= 0	 
+                             usetable_GRC_KIR 	= 0	 
+                             usetable_GRC_KM 	= 0	
+			     
+			    			 insert GRC_NA 
+	                     	 insert GRC_KV 
+		
+	 		     			 usetable_GRC_NA 	= 0	
+			      			 usetable_GRC_KV 	= 0	     
+
+                             insert GRC_KCA 
+                             usetable_GRC_KCA 	= 0	
+                             gkbar_GRC_KCA = 0
+ 
+                             insert GRC_CA 
+                             usetable_GRC_CA 	= 0	
+                             gcabar_GRC_CA        = 0
+ 
+                             insert GRC_CALC 
+			     			 beta_GRC_CALC = 1.5
+
+			     			 ena = 87.39	
+			     			 ek = -84.69 
+                             eca = 129.33 
+                             ecl = -65
+			     
+			     
+			     
+                        } 
+                      // Hillock definition 
+ 
+                      for(w1=0;w1<nsg;w1=w1+1) {
+						hillock[w1] {
+				    		access hillock[w1]
+                            nseg = 1 
+	                        diam = 2.3-0.5*w1 
+	                        L = 0.5 
+	                        cm = 1 
+	                        Ra = 100
+				       // Hillock Channels 
+	                            insert GRC_LKG1 
+	                            
+				    			insert GRC_NA 
+	                     	    insert GRC_KV 
+		
+	 		     	    		usetable_GRC_NA 	= 0	 
+	                     	    usetable_GRC_KV 	= 0	
+				    				     	\
+				    			ena = 87.39
+				    			ek = -84.69 
+				        }
+		      		}
+ 
+		      
+		      for(w3=0;w3<naxon;w3=w3+1) { 
+                      	axon[w3] {   // Axon definition
+				 			access axon[w3] 
+	                         nseg = 1 
+	                         diam = 0.3 
+	                         L = 2.3367 
+	                         cm = 1 
+	                         Ra = 100
+				 
+	                         // Axon Channels 
+	                         insert GRC_LKG1
+				 			 insert GRC_NA 
+	                     	 insert GRC_KV 
+		
+	 		     	 		 usetable_GRC_NA 	= 0	 
+	                     	 usetable_GRC_KV 	= 0	
+  
+
+   		  	  	 			 ena = 87.39 
+				 			 ek = -84.69  
+						} 
+				  
+                }
+	
+            // Dendrite definition: first compartment     
+			for(w2=0;w2<ndend;w2=w2+1) { 
+                            dend_1[w2] {
+							   access dend_1[w2]  
+	                           nseg = 1 
+	                           diam = 0.75 
+	                           L = 5 
+	                           cm = 1 
+	                           Ra = 100
+				    
+	                           // Dendritic Channels 
+	                           insert GRC_LKG1 
+				   			   insert GRC_LKG2
+			      	   		   ggaba_GRC_LKG2 = 3e-05	 
+ 
+	                           insert GRC_KIR 
+	                           usetable_GRC_KIR 	= 0 
+	                           gkbar_GRC_KIR=0 
+
+				               insert GRC_KA 
+	                           usetable_GRC_KA 	= 0 
+	                           gkbar_GRC_KA=0 
+ 
+                               insert GRC_KCA 
+                               usetable_GRC_KCA 	= 0
+                               gkbar_GRC_KCA = 0
+ 
+                               insert GRC_CA 
+                               usetable_GRC_CA 	= 0
+                               gcabar_GRC_CA    = 0
+ 
+                               insert GRC_CALC 
+				   			   beta_GRC_CALC = 1.5
+ 
+                               eca = 129.33 
+                               ek = -84.69 
+				    
+                           }
+			} 
+                      	 
+                        // Dendrite definition: second compartment 
+                        for(w2=0;w2<ndend;w2=w2+1) { 
+            	                dend_2[w2] { 
+								   access dend_2[w2]
+                                   nseg = 1 
+                                   diam = 0.75 
+                                   L = 5 
+                                   cm = 1 
+                                   Ra = 100
+				  
+				               // Dendritic Channels 
+	                           	insert GRC_LKG1
+				   			   	insert GRC_LKG2
+			      	   			ggaba_GRC_LKG2 = 3e-05	 
+                                   
+				   				insert GRC_KIR 
+	                           	usetable_GRC_KIR 	= 0
+	                           	gkbar_GRC_KIR=0 
+ 
+	                           	insert GRC_KA 
+	                           	usetable_GRC_KA = 0	
+                                gkbar_GRC_KA=0 
+ 
+                                insert GRC_KCA 
+                                usetable_GRC_KCA = 0
+                                gkbar_GRC_KCa = 0
+ 
+                                insert GRC_CA 
+                                usetable_GRC_CA 	= 0	
+                                gcabar_GRC_CA        = 0
+ 
+                                insert GRC_CALC 
+				   				beta_GRC_CALC = 1.5
+ 
+                                eca = 129.33 
+                                ek = -84.69
+				    
+                              } 
+                        }
+			  
+                        // Dendrite definition: third compartment 
+                        	for(w2=0;w2<ndend;w2=w2+1) {	 
+                            	dend_3[w2] {
+				   					access dend_3[w2] 
+                                   	nseg = 1 
+	                           		diam = 0.75 
+	                           		L = 2.5 
+	                           		cm = 1 
+	                           		Ra = 100
+                                   
+	                           // Dendritic Channels 
+ 
+	                           	insert GRC_LKG1
+				   				insert GRC_LKG2
+			      	   			ggaba_GRC_LKG2 = 3e-05	 
+ 
+	                           	insert GRC_KIR 
+	                           	usetable_GRC_KIR 	= 0
+	                           	gkbar_GRC_KIR=0 
+ 				   
+	                           	insert GRC_KA 
+	                           	usetable_GRC_KA 	= 0
+	                           	gkbar_GRC_KA=0 
+ 
+                                insert GRC_KCA 
+                                usetable_GRC_KCA 	= 0
+                                gkbar_GRC_KCA = 0
+ 
+                                insert GRC_CA 
+                                usetable_GRC_CA 	= 0	
+                                gcabar_GRC_CA        = 0
+ 
+                                insert GRC_CALC 
+				   				beta_GRC_CALC = 1.5
+ 
+                                eca = 129.33 
+                                ek = -84.69  
+ 
+                                synG[w2] = new GRC_GABA(0.5)  
+                          }
+			    }	 
+				 
+                        // Dendrite definition: fourth compartment 
+                      			for(w2=0;w2<ndend;w2=w2+1) { 
+                            		dend_4[w2] {
+				   						access dend_4[w2] 
+                                   		nseg = 1 
+	                           			diam = 0.75 
+	                           			L = 2.5 
+	                           			cm = 1 
+	                           			Ra = 100
+				                                           
+	                           			// Dendritic Channels 
+	               			            insert GRC_LKG1
+				   						insert GRC_LKG2
+			      	   					ggaba_GRC_LKG2 = 3e-05	 
+ 
+				   						insert GRC_CA
+ 
+	                           			insert GRC_KIR 
+	                           			usetable_GRC_KIR 	= 0	// 1 
+	                           			gkbar_GRC_KIR=0 
+ 
+	                           			insert GRC_KA 
+	                           			usetable_GRC_KA 	= 0	// 1 
+	                           			gkbar_GRC_KA=0 
+ 
+                                   		insert GRC_KCA 
+                                   		usetable_GRC_KCA 	= 0	// 1 
+ 
+                                   		insert GRC_CA 
+                                   		usetable_GRC_CA 	= 0	// 1 
+                                  
+                                   		insert GRC_CALC
+				   						beta_GRC_CALC = 1.5  
+ 
+                                   		eca = 129.33 
+                                   		ek = -84.69 
+ 
+	                           			synA[w2] = new AmpaCOD(0.5) 
+                                   		synNS[w2] = new NMDAS(0.5) 
+					
+                            }
+			    }
+
+			//Passive compartments -to maintain propagation delay and to avoid spike reflection     
+			branch0 {
+			     			access branch0 
+                 			nseg = 1 
+                            diam = 0.3
+                            L = 3
+                            cm = 0.5 
+                            Ra = 100
+						    celsius=30
+			     			insert GRC_LKG1 	
+				   
+			}
+			branch1 {
+			     			access branch1 
+                            nseg = 1 
+                            diam = 0.2
+                            L = 5
+                            cm = 0.45 
+                            Ra = 100
+			     			celsius=30
+			     			insert GRC_LKG1 	
+				   
+			}
+			branch2 {
+			     			access branch2 
+                            nseg = 1 
+                            diam = 0.1
+                            L = 10
+                            cm = 1 
+                            Ra = 90
+			     			celsius=30
+			     			insert GRC_LKG1 	
+				   
+			}
+	 		branch3 {
+			     			access branch3 
+                            nseg = 1 
+                            diam = 0.1
+                            L = 200
+                            cm = 1 
+                            Ra = 100
+			     			celsius=30
+			     			insert GRC_LKG1
+			}	 
+			
+			//Connect all compartments
+                        for(i=0;i<ndend;i=i+1){ 
+                                 connect dend_4[i](1), dend_3[i](0) 
+                                 connect dend_3[i](1), dend_2[i](0) 
+                                 connect dend_2[i](1), dend_1[i](0) 
+                                 connect dend_1[i](1), soma(0)
+			}	 
+			connect soma(1), hillock[0](0)
+			connect hillock[0](1), hillock[1](0)
+			connect hillock[1](1), hillock[2](0)
+			connect hillock[2](1), hillock[3](0)
+			connect hillock[3](1), hillock[4](0)
+			connect hillock[4](1), axon[0](0)
+
+			for(i=0;i<naxon-1;i=i+1) {
+				connect axon[i](1), axon[i+1](0)
+			}
+			
+			connect axon[naxon-1](1),branch0(0)
+			connect branch0(1),branch1(0)
+ 			connect branch1(1),branch2(0)
+ 			connect branch2(1),branch3(0)
+
+                        
+      } 
+endtemplate GrC

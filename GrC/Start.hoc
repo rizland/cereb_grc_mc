@@ -1,0 +1,86 @@
+// Detailed model of Cerebellar Granular Cell model
+// Multicompartmental model - Initiation script
+// Last updated 07-Jan-2009
+// Model developer: Shyam Diwakar M.
+// Developed at Egidio D'Angelo's Lab at Univ of Pavia
+// Code contributors: Thierry Nieus, Sergio Solinas 
+// Dept. of Gen. Physiology (Univ. of Pavia, Italy)
+// School of biotech (Amrita University, India) 
+// Email:shyam@unipv.it
+
+/* Model published as [Diwakar et al, J.Neurophysiology] 
+ Shyam Diwakar, Jacopo Magistretti, Mitchell Goldfarb, Giovanni Naldi, and Egidio D'Angelo.
+ Axonal Na+ channels ensure fast spike activation and back-propagation in cerebellar granule cells, J Neurophysiol (December 10, 2008). 
+ doi:10.1152/jn.90382.2008
+ */ 
+
+
+xopen("$(NEURONHOME)/lib/hoc/noload.hoc")
+
+
+// ***** General settings *****
+tstop=200 //default simulation stop time in ms
+v_init = -70 //init voltage
+xopen("Grc_Cell.hoc") // load Granule cell template
+objref Granule[1]  //create Granule cell
+Granule[0] = new GrC()
+	
+// ***** Synapses ****
+
+objref nclist,Mossy[4],Inhib[4],nclist2	
+objref synNS[4],synA[4],synG[4]	
+
+
+// ***** Procedures to connect synapses to dendritic tips *****
+proc con1() {
+	nclist2 = new List()
+	for(j=0;j<4;j=j+1) {
+	    //print j,k
+	    access Granule[0].dend_3[j]	
+	    Inhib[j] = new SpikeGenerator(0.5)
+            synG[j] = new GRC_GABA(0.5)
+            nclist2.append(new NetCon(Inhib[j], synG[j], -20, 0.000, 1e-3))
+        }
+}
+proc con2() { 
+	nclist = new List()
+       	for(k3=0;k3<4;k3=k3+1) {
+		access Granule[0].dend_4[k3]
+        	Mossy[k3] = new SpikeGenerator(0.5)
+		synA[k3] = new AmpaCOD(0.5)
+		synNS[k3] = new NMDAS(0.5)
+	        nclist.append(new NetCon(Mossy[k3], synNS[k3],-20, 0.000, 1e-3))
+	        nclist.append(new NetCon(Mossy[k3], synA[k3],-20, 0.000, 1e-3))
+        }
+}
+
+	con1()
+	con2()
+
+
+// ***** Start GUI *****
+
+load_proc("nrnmainmenu")
+nrnmainmenu()
+
+xopen("ComPanel.hoc") //Command Panel
+
+// ***** Initialization *****
+
+finitialize(v_init)
+
+proc usetable(){
+	usetable_GRC_NA  = 	$1
+	usetable_GRC_NAR = 	$1
+	usetable_GRC_PNA = 	$1
+	usetable_GRC_KV  = 	$1
+	usetable_GRC_KA  =  	$1
+	usetable_GRC_KIR = 	$1
+	usetable_GRC_KM  = 	$1
+	usetable_GRC_CA  = 	$1
+}
+
+xopen("Parametri.hoc") //"Channels and Controls Panel"
+access GrC[0].soma
+
+xopen("simple.ses") // A simple session file with a graph plotting membrane voltage across many compartments

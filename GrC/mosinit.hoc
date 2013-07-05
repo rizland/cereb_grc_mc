@@ -1,0 +1,19 @@
+// Detailed model of Cerebellar Granular Cell model
+// Multicompartmental model - Click and run script
+// Last updated 07-Jan-2009
+// Model developer: Shyam Diwakar M.
+// Developed at Egidio D'Angelo's Lab at Univ of Pavia
+// Code contributors: Thierry Nieus, Sergio Solinas 
+// Dept. of Gen. Physiology (Univ. of Pavia, Italy)
+// School of biotech (Amrita University, India) 
+// Email:shyam@unipv.it
+
+/* Model published as [Diwakar et al, J.Neurophysiology] 
+ Shyam Diwakar, Jacopo Magistretti, Mitchell Goldfarb, Giovanni Naldi, and Egidio D'Angelo.
+ Axonal Na+ channels ensure fast spike activation and back-propagation in cerebellar granule cells, J Neurophysiol (December 10, 2008). 
+ doi:10.1152/jn.90382.2008
+ */ 
+
+load_file("nrngui.hoc")
+load_file("Start.hoc")
+
