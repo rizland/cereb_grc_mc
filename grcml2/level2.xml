@@ -1,0 +1,1277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://morphml.org/neuroml/schema"
+    xmlns:mml="http://morphml.org/morphml/schema"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xmlns:bio="http://morphml.org/biophysics/schema"
+    xmlns:cml="http://morphml.org/channelml/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://morphml.org/neuroml/schema http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level3/NeuroML_Level3_v1.8.1.xsd"
+    name = "NeuroML Level 2 file exported from NEURON"
+    lengthUnits="micron">
+
+<meta:notes>NeuroML Level 2 file generated from ModelView by: NEURON -- Release 7.3 (849:5be3d097b917) 2013-04-11
+Authors: Michael Hines, Sushil Kambampati and Padraig Gleeson,
+Yale University and UCL</meta:notes>
+
+<cells>
+  <cell name="GrC_0">
+    <meta:notes>Cell: GrC_0 exported from NEURON ModelView</meta:notes>
+    <segments  xmlns="http://morphml.org/morphml/schema"> <!-- Changing the namespace from neuroml to morphml-->
+<!-- Section: GrC[0].branch3 -->
+      <segment id="0" name = "Seg0_branch3" cable = "55">
+        <proximal x="0" y="0" z="0" diameter="0.1"/>
+        <distal x="100" y="0" z="0" diameter="0.1"/>
+      </segment>
+      <segment id="112" name = "Seg1_branch3" parent="0" cable = "55">
+        <distal x="200" y="0" z="0" diameter="0.1"/>
+      </segment>
+<!-- Section: GrC[0].branch2 -->
+      <segment id="109" name = "Seg0_branch2" parent="112" cable = "54">  <!-- Parent section: GrC[0].branch3 -->
+        <proximal x="200" y="0" z="0" diameter="0.1"/>
+        <distal x="205" y="0" z="0" diameter="0.1"/>
+      </segment>
+      <segment id="110" name = "Seg1_branch2" parent="109" cable = "54">
+        <distal x="210" y="0" z="0" diameter="0.1"/>
+      </segment>
+<!-- Section: GrC[0].branch1 -->
+      <segment id="107" name = "Seg0_branch1" parent="110" cable = "53">  <!-- Parent section: GrC[0].branch2 -->
+        <proximal x="210" y="0" z="0" diameter="0.2"/>
+        <distal x="212.5" y="0" z="0" diameter="0.2"/>
+      </segment>
+      <segment id="108" name = "Seg1_branch1" parent="107" cable = "53">
+        <distal x="215" y="0" z="0" diameter="0.2"/>
+      </segment>
+<!-- Section: GrC[0].branch0 -->
+      <segment id="105" name = "Seg0_branch0" parent="108" cable = "52">  <!-- Parent section: GrC[0].branch1 -->
+        <proximal x="215" y="0" z="0" diameter="0.3"/>
+        <distal x="216.5" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="106" name = "Seg1_branch0" parent="105" cable = "52">
+        <distal x="218" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[29] -->
+      <segment id="71" name = "Seg0_axon_29" parent="106" cable = "35">  <!-- Parent section: GrC[0].branch0 -->
+        <proximal x="218" y="0" z="0" diameter="0.3"/>
+        <distal x="219.168" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="72" name = "Seg1_axon_29" parent="71" cable = "35">
+        <distal x="220.337" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[28] -->
+      <segment id="69" name = "Seg0_axon_28" parent="72" cable = "34">  <!-- Parent section: GrC[0].axon[29] -->
+        <proximal x="220.337" y="0" z="0" diameter="0.3"/>
+        <distal x="221.505" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="70" name = "Seg1_axon_28" parent="69" cable = "34">
+        <distal x="222.673" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[27] -->
+      <segment id="67" name = "Seg0_axon_27" parent="70" cable = "33">  <!-- Parent section: GrC[0].axon[28] -->
+        <proximal x="222.673" y="0" z="0" diameter="0.3"/>
+        <distal x="223.842" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="68" name = "Seg1_axon_27" parent="67" cable = "33">
+        <distal x="225.01" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[26] -->
+      <segment id="65" name = "Seg0_axon_26" parent="68" cable = "32">  <!-- Parent section: GrC[0].axon[27] -->
+        <proximal x="225.01" y="0" z="0" diameter="0.3"/>
+        <distal x="226.178" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="66" name = "Seg1_axon_26" parent="65" cable = "32">
+        <distal x="227.347" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[25] -->
+      <segment id="63" name = "Seg0_axon_25" parent="66" cable = "31">  <!-- Parent section: GrC[0].axon[26] -->
+        <proximal x="227.347" y="0" z="0" diameter="0.3"/>
+        <distal x="228.515" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="64" name = "Seg1_axon_25" parent="63" cable = "31">
+        <distal x="229.684" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[24] -->
+      <segment id="61" name = "Seg0_axon_24" parent="64" cable = "30">  <!-- Parent section: GrC[0].axon[25] -->
+        <proximal x="229.684" y="0" z="0" diameter="0.3"/>
+        <distal x="230.852" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="62" name = "Seg1_axon_24" parent="61" cable = "30">
+        <distal x="232.02" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[23] -->
+      <segment id="59" name = "Seg0_axon_23" parent="62" cable = "29">  <!-- Parent section: GrC[0].axon[24] -->
+        <proximal x="232.02" y="0" z="0" diameter="0.3"/>
+        <distal x="233.189" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="60" name = "Seg1_axon_23" parent="59" cable = "29">
+        <distal x="234.357" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[22] -->
+      <segment id="57" name = "Seg0_axon_22" parent="60" cable = "28">  <!-- Parent section: GrC[0].axon[23] -->
+        <proximal x="234.357" y="0" z="0" diameter="0.3"/>
+        <distal x="235.525" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="58" name = "Seg1_axon_22" parent="57" cable = "28">
+        <distal x="236.694" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[21] -->
+      <segment id="55" name = "Seg0_axon_21" parent="58" cable = "27">  <!-- Parent section: GrC[0].axon[22] -->
+        <proximal x="236.694" y="0" z="0" diameter="0.3"/>
+        <distal x="237.862" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="56" name = "Seg1_axon_21" parent="55" cable = "27">
+        <distal x="239.03" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[20] -->
+      <segment id="53" name = "Seg0_axon_20" parent="56" cable = "26">  <!-- Parent section: GrC[0].axon[21] -->
+        <proximal x="239.03" y="0" z="0" diameter="0.3"/>
+        <distal x="240.199" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="54" name = "Seg1_axon_20" parent="53" cable = "26">
+        <distal x="241.367" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[19] -->
+      <segment id="51" name = "Seg0_axon_19" parent="54" cable = "25">  <!-- Parent section: GrC[0].axon[20] -->
+        <proximal x="241.367" y="0" z="0" diameter="0.3"/>
+        <distal x="242.535" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="52" name = "Seg1_axon_19" parent="51" cable = "25">
+        <distal x="243.704" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[18] -->
+      <segment id="49" name = "Seg0_axon_18" parent="52" cable = "24">  <!-- Parent section: GrC[0].axon[19] -->
+        <proximal x="243.704" y="0" z="0" diameter="0.3"/>
+        <distal x="244.872" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="50" name = "Seg1_axon_18" parent="49" cable = "24">
+        <distal x="246.04" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[17] -->
+      <segment id="47" name = "Seg0_axon_17" parent="50" cable = "23">  <!-- Parent section: GrC[0].axon[18] -->
+        <proximal x="246.04" y="0" z="0" diameter="0.3"/>
+        <distal x="247.209" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="48" name = "Seg1_axon_17" parent="47" cable = "23">
+        <distal x="248.377" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[16] -->
+      <segment id="45" name = "Seg0_axon_16" parent="48" cable = "22">  <!-- Parent section: GrC[0].axon[17] -->
+        <proximal x="248.377" y="0" z="0" diameter="0.3"/>
+        <distal x="249.545" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="46" name = "Seg1_axon_16" parent="45" cable = "22">
+        <distal x="250.714" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[15] -->
+      <segment id="43" name = "Seg0_axon_15" parent="46" cable = "21">  <!-- Parent section: GrC[0].axon[16] -->
+        <proximal x="250.714" y="0" z="0" diameter="0.3"/>
+        <distal x="251.882" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="44" name = "Seg1_axon_15" parent="43" cable = "21">
+        <distal x="253.051" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[14] -->
+      <segment id="41" name = "Seg0_axon_14" parent="44" cable = "20">  <!-- Parent section: GrC[0].axon[15] -->
+        <proximal x="253.051" y="0" z="0" diameter="0.3"/>
+        <distal x="254.219" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="42" name = "Seg1_axon_14" parent="41" cable = "20">
+        <distal x="255.387" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[13] -->
+      <segment id="39" name = "Seg0_axon_13" parent="42" cable = "19">  <!-- Parent section: GrC[0].axon[14] -->
+        <proximal x="255.387" y="0" z="0" diameter="0.3"/>
+        <distal x="256.556" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="40" name = "Seg1_axon_13" parent="39" cable = "19">
+        <distal x="257.724" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[12] -->
+      <segment id="37" name = "Seg0_axon_12" parent="40" cable = "18">  <!-- Parent section: GrC[0].axon[13] -->
+        <proximal x="257.724" y="0" z="0" diameter="0.3"/>
+        <distal x="258.892" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="38" name = "Seg1_axon_12" parent="37" cable = "18">
+        <distal x="260.061" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[11] -->
+      <segment id="35" name = "Seg0_axon_11" parent="38" cable = "17">  <!-- Parent section: GrC[0].axon[12] -->
+        <proximal x="260.061" y="0" z="0" diameter="0.3"/>
+        <distal x="261.229" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="36" name = "Seg1_axon_11" parent="35" cable = "17">
+        <distal x="262.397" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[10] -->
+      <segment id="33" name = "Seg0_axon_10" parent="36" cable = "16">  <!-- Parent section: GrC[0].axon[11] -->
+        <proximal x="262.397" y="0" z="0" diameter="0.3"/>
+        <distal x="263.566" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="34" name = "Seg1_axon_10" parent="33" cable = "16">
+        <distal x="264.734" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[9] -->
+      <segment id="31" name = "Seg0_axon_9" parent="34" cable = "15">  <!-- Parent section: GrC[0].axon[10] -->
+        <proximal x="264.734" y="0" z="0" diameter="0.3"/>
+        <distal x="265.902" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="32" name = "Seg1_axon_9" parent="31" cable = "15">
+        <distal x="267.071" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[8] -->
+      <segment id="29" name = "Seg0_axon_8" parent="32" cable = "14">  <!-- Parent section: GrC[0].axon[9] -->
+        <proximal x="267.071" y="0" z="0" diameter="0.3"/>
+        <distal x="268.239" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="30" name = "Seg1_axon_8" parent="29" cable = "14">
+        <distal x="269.407" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[7] -->
+      <segment id="27" name = "Seg0_axon_7" parent="30" cable = "13">  <!-- Parent section: GrC[0].axon[8] -->
+        <proximal x="269.407" y="0" z="0" diameter="0.3"/>
+        <distal x="270.576" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="28" name = "Seg1_axon_7" parent="27" cable = "13">
+        <distal x="271.744" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[6] -->
+      <segment id="25" name = "Seg0_axon_6" parent="28" cable = "12">  <!-- Parent section: GrC[0].axon[7] -->
+        <proximal x="271.744" y="0" z="0" diameter="0.3"/>
+        <distal x="272.912" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="26" name = "Seg1_axon_6" parent="25" cable = "12">
+        <distal x="274.081" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[5] -->
+      <segment id="23" name = "Seg0_axon_5" parent="26" cable = "11">  <!-- Parent section: GrC[0].axon[6] -->
+        <proximal x="274.081" y="0" z="0" diameter="0.3"/>
+        <distal x="275.249" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="24" name = "Seg1_axon_5" parent="23" cable = "11">
+        <distal x="276.418" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[4] -->
+      <segment id="21" name = "Seg0_axon_4" parent="24" cable = "10">  <!-- Parent section: GrC[0].axon[5] -->
+        <proximal x="276.418" y="0" z="0" diameter="0.3"/>
+        <distal x="277.586" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="22" name = "Seg1_axon_4" parent="21" cable = "10">
+        <distal x="278.754" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[3] -->
+      <segment id="19" name = "Seg0_axon_3" parent="22" cable = "9">  <!-- Parent section: GrC[0].axon[4] -->
+        <proximal x="278.754" y="0" z="0" diameter="0.3"/>
+        <distal x="279.923" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="20" name = "Seg1_axon_3" parent="19" cable = "9">
+        <distal x="281.091" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[2] -->
+      <segment id="17" name = "Seg0_axon_2" parent="20" cable = "8">  <!-- Parent section: GrC[0].axon[3] -->
+        <proximal x="281.091" y="0" z="0" diameter="0.3"/>
+        <distal x="282.259" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="18" name = "Seg1_axon_2" parent="17" cable = "8">
+        <distal x="283.428" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[1] -->
+      <segment id="15" name = "Seg0_axon_1" parent="18" cable = "7">  <!-- Parent section: GrC[0].axon[2] -->
+        <proximal x="283.428" y="0" z="0" diameter="0.3"/>
+        <distal x="284.596" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="16" name = "Seg1_axon_1" parent="15" cable = "7">
+        <distal x="285.764" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[0] -->
+      <segment id="13" name = "Seg0_axon_0" parent="16" cable = "6">  <!-- Parent section: GrC[0].axon[1] -->
+        <proximal x="285.764" y="0" z="0" diameter="0.3"/>
+        <distal x="286.933" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="14" name = "Seg1_axon_0" parent="13" cable = "6">
+        <distal x="288.101" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].hillock[4] -->
+      <segment id="11" name = "Seg0_hillock_4" parent="14" cable = "5">  <!-- Parent section: GrC[0].axon[0] -->
+        <proximal x="288.101" y="0" z="0" diameter="0.3"/>
+        <distal x="288.351" y="0" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="12" name = "Seg1_hillock_4" parent="11" cable = "5">
+        <distal x="288.601" y="0" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].hillock[3] -->
+      <segment id="9" name = "Seg0_hillock_3" parent="12" cable = "4">  <!-- Parent section: GrC[0].hillock[4] -->
+        <proximal x="288.601" y="0" z="0" diameter="0.8"/>
+        <distal x="288.851" y="0" z="0" diameter="0.8"/>
+      </segment>
+      <segment id="10" name = "Seg1_hillock_3" parent="9" cable = "4">
+        <distal x="289.101" y="0" z="0" diameter="0.8"/>
+      </segment>
+<!-- Section: GrC[0].hillock[2] -->
+      <segment id="7" name = "Seg0_hillock_2" parent="10" cable = "3">  <!-- Parent section: GrC[0].hillock[3] -->
+        <proximal x="289.101" y="0" z="0" diameter="1.3"/>
+        <distal x="289.351" y="0" z="0" diameter="1.3"/>
+      </segment>
+      <segment id="8" name = "Seg1_hillock_2" parent="7" cable = "3">
+        <distal x="289.601" y="0" z="0" diameter="1.3"/>
+      </segment>
+<!-- Section: GrC[0].hillock[1] -->
+      <segment id="5" name = "Seg0_hillock_1" parent="8" cable = "2">  <!-- Parent section: GrC[0].hillock[2] -->
+        <proximal x="289.601" y="0" z="0" diameter="1.8"/>
+        <distal x="289.851" y="0" z="0" diameter="1.8"/>
+      </segment>
+      <segment id="6" name = "Seg1_hillock_1" parent="5" cable = "2">
+        <distal x="290.101" y="0" z="0" diameter="1.8"/>
+      </segment>
+<!-- Section: GrC[0].hillock[0] -->
+      <segment id="3" name = "Seg0_hillock_0" parent="6" cable = "1">  <!-- Parent section: GrC[0].hillock[1] -->
+        <proximal x="290.101" y="0" z="0" diameter="2.3"/>
+        <distal x="290.351" y="0" z="0" diameter="2.3"/>
+      </segment>
+      <segment id="4" name = "Seg1_hillock_0" parent="3" cable = "1">
+        <distal x="290.601" y="0" z="0" diameter="2.3"/>
+      </segment>
+<!-- Section: GrC[0].soma -->
+      <segment id="1" name = "Seg0_soma" parent="4" cable = "0">  <!-- Parent section: GrC[0].hillock[0] -->
+        <proximal x="290.601" y="0" z="0" diameter="5.8"/>
+        <distal x="293.501" y="0" z="0" diameter="5.8"/>
+      </segment>
+      <segment id="2" name = "Seg1_soma" parent="1" cable = "0">
+        <distal x="296.401" y="0" z="0" diameter="5.8"/>
+      </segment>
+<!-- Section: GrC[0].dend_1[3] -->
+      <segment id="79" name = "Seg0_dend_1_3" parent="2" cable = "39">  <!-- Parent section: GrC[0].soma -->
+        <proximal x="296.401" y="0" z="0" diameter="0.75"/>
+        <distal x="298.704" y="-0.973546" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="80" name = "Seg1_dend_1_3" parent="79" cable = "39">
+        <distal x="301.006" y="-1.94709" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_1[2] -->
+      <segment id="77" name = "Seg0_dend_1_2" parent="2" cable = "38">  <!-- Parent section: GrC[0].soma -->
+        <proximal x="296.401" y="0" z="0" diameter="0.75"/>
+        <distal x="298.879" y="-0.332347" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="78" name = "Seg1_dend_1_2" parent="77" cable = "38">
+        <distal x="301.357" y="-0.664693" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_1[1] -->
+      <segment id="75" name = "Seg0_dend_1_1" parent="2" cable = "37">  <!-- Parent section: GrC[0].soma -->
+        <proximal x="296.401" y="0" z="0" diameter="0.75"/>
+        <distal x="298.879" y="0.332347" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="76" name = "Seg1_dend_1_1" parent="75" cable = "37">
+        <distal x="301.357" y="0.664693" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_1[0] -->
+      <segment id="73" name = "Seg0_dend_1_0" parent="2" cable = "36">  <!-- Parent section: GrC[0].soma -->
+        <proximal x="296.401" y="0" z="0" diameter="0.75"/>
+        <distal x="298.704" y="0.973546" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="74" name = "Seg1_dend_1_0" parent="73" cable = "36">
+        <distal x="301.006" y="1.94709" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_2[3] -->
+      <segment id="87" name = "Seg0_dend_2_3" parent="80" cable = "43">  <!-- Parent section: GrC[0].dend_1[3] -->
+        <proximal x="301.006" y="-1.94709" z="0" diameter="0.75"/>
+        <distal x="303.309" y="-2.92064" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="88" name = "Seg1_dend_2_3" parent="87" cable = "43">
+        <distal x="305.612" y="-3.89418" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_2[2] -->
+      <segment id="85" name = "Seg0_dend_2_2" parent="78" cable = "42">  <!-- Parent section: GrC[0].dend_1[2] -->
+        <proximal x="301.357" y="-0.664693" z="0" diameter="0.75"/>
+        <distal x="303.834" y="-0.997039" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="86" name = "Seg1_dend_2_2" parent="85" cable = "42">
+        <distal x="306.312" y="-1.32939" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_2[1] -->
+      <segment id="83" name = "Seg0_dend_2_1" parent="76" cable = "41">  <!-- Parent section: GrC[0].dend_1[1] -->
+        <proximal x="301.357" y="0.664693" z="0" diameter="0.75"/>
+        <distal x="303.834" y="0.997039" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="84" name = "Seg1_dend_2_1" parent="83" cable = "41">
+        <distal x="306.312" y="1.32939" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_2[0] -->
+      <segment id="81" name = "Seg0_dend_2_0" parent="74" cable = "40">  <!-- Parent section: GrC[0].dend_1[0] -->
+        <proximal x="301.006" y="1.94709" z="0" diameter="0.75"/>
+        <distal x="303.309" y="2.92064" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="82" name = "Seg1_dend_2_0" parent="81" cable = "40">
+        <distal x="305.612" y="3.89418" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_3[3] -->
+      <segment id="95" name = "Seg0_dend_3_3" parent="88" cable = "47">  <!-- Parent section: GrC[0].dend_2[3] -->
+        <proximal x="305.612" y="-3.89418" z="0" diameter="0.75"/>
+        <distal x="306.763" y="-4.38095" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="96" name = "Seg1_dend_3_3" parent="95" cable = "47">
+        <distal x="307.914" y="-4.86772" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_3[2] -->
+      <segment id="93" name = "Seg0_dend_3_2" parent="86" cable = "46">  <!-- Parent section: GrC[0].dend_2[2] -->
+        <proximal x="306.312" y="-1.32939" z="0" diameter="0.75"/>
+        <distal x="307.551" y="-1.49556" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="94" name = "Seg1_dend_3_2" parent="93" cable = "46">
+        <distal x="308.79" y="-1.66173" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_3[1] -->
+      <segment id="91" name = "Seg0_dend_3_1" parent="84" cable = "45">  <!-- Parent section: GrC[0].dend_2[1] -->
+        <proximal x="306.312" y="1.32939" z="0" diameter="0.75"/>
+        <distal x="307.551" y="1.49556" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="92" name = "Seg1_dend_3_1" parent="91" cable = "45">
+        <distal x="308.79" y="1.66173" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_3[0] -->
+      <segment id="89" name = "Seg0_dend_3_0" parent="82" cable = "44">  <!-- Parent section: GrC[0].dend_2[0] -->
+        <proximal x="305.612" y="3.89418" z="0" diameter="0.75"/>
+        <distal x="306.763" y="4.38095" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="90" name = "Seg1_dend_3_0" parent="89" cable = "44">
+        <distal x="307.914" y="4.86772" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_4[3] -->
+      <segment id="103" name = "Seg0_dend_4_3" parent="96" cable = "51">  <!-- Parent section: GrC[0].dend_3[3] -->
+        <proximal x="307.914" y="-4.86772" z="0" diameter="0.75"/>
+        <distal x="309.066" y="-5.35449" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="104" name = "Seg1_dend_4_3" parent="103" cable = "51">
+        <distal x="310.217" y="-5.84127" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_4[2] -->
+      <segment id="101" name = "Seg0_dend_4_2" parent="94" cable = "50">  <!-- Parent section: GrC[0].dend_3[2] -->
+        <proximal x="308.79" y="-1.66173" z="0" diameter="0.75"/>
+        <distal x="310.029" y="-1.8279" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="102" name = "Seg1_dend_4_2" parent="101" cable = "50">
+        <distal x="311.268" y="-1.99408" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_4[1] -->
+      <segment id="99" name = "Seg0_dend_4_1" parent="92" cable = "49">  <!-- Parent section: GrC[0].dend_3[1] -->
+        <proximal x="308.79" y="1.66173" z="0" diameter="0.75"/>
+        <distal x="310.029" y="1.8279" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="100" name = "Seg1_dend_4_1" parent="99" cable = "49">
+        <distal x="311.268" y="1.99408" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_4[0] -->
+      <segment id="97" name = "Seg0_dend_4_0" parent="90" cable = "48">  <!-- Parent section: GrC[0].dend_3[0] -->
+        <proximal x="307.914" y="4.86772" z="0" diameter="0.75"/>
+        <distal x="309.066" y="5.35449" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="98" name = "Seg1_dend_4_0" parent="97" cable = "48">
+        <distal x="310.217" y="5.84127" z="0" diameter="0.75"/>
+      </segment>
+    </segments>
+    <cables  xmlns="http://morphml.org/morphml/schema"> <!-- Changing namespace from neuroml to morphml-->
+      <cable id = "55" name = "branch3" fract_along_parent = "0"/>
+      <cable id = "54" name = "branch2"/>
+      <cable id = "53" name = "branch1"/>
+      <cable id = "52" name = "branch0"/>
+      <cable id = "35" name = "axon_29"/>
+      <cable id = "34" name = "axon_28"/>
+      <cable id = "33" name = "axon_27"/>
+      <cable id = "32" name = "axon_26"/>
+      <cable id = "31" name = "axon_25"/>
+      <cable id = "30" name = "axon_24"/>
+      <cable id = "29" name = "axon_23"/>
+      <cable id = "28" name = "axon_22"/>
+      <cable id = "27" name = "axon_21"/>
+      <cable id = "26" name = "axon_20"/>
+      <cable id = "25" name = "axon_19"/>
+      <cable id = "24" name = "axon_18"/>
+      <cable id = "23" name = "axon_17"/>
+      <cable id = "22" name = "axon_16"/>
+      <cable id = "21" name = "axon_15"/>
+      <cable id = "20" name = "axon_14"/>
+      <cable id = "19" name = "axon_13"/>
+      <cable id = "18" name = "axon_12"/>
+      <cable id = "17" name = "axon_11"/>
+      <cable id = "16" name = "axon_10"/>
+      <cable id = "15" name = "axon_9"/>
+      <cable id = "14" name = "axon_8"/>
+      <cable id = "13" name = "axon_7"/>
+      <cable id = "12" name = "axon_6"/>
+      <cable id = "11" name = "axon_5"/>
+      <cable id = "10" name = "axon_4"/>
+      <cable id = "9" name = "axon_3"/>
+      <cable id = "8" name = "axon_2"/>
+      <cable id = "7" name = "axon_1"/>
+      <cable id = "6" name = "axon_0"/>
+      <cable id = "5" name = "hillock_4"/>
+      <cable id = "4" name = "hillock_3"/>
+      <cable id = "3" name = "hillock_2"/>
+      <cable id = "2" name = "hillock_1"/>
+      <cable id = "1" name = "hillock_0"/>
+      <cable id = "0" name = "soma"/>
+      <cable id = "39" name = "dend_1_3"/>
+      <cable id = "38" name = "dend_1_2"/>
+      <cable id = "37" name = "dend_1_1"/>
+      <cable id = "36" name = "dend_1_0"/>
+      <cable id = "43" name = "dend_2_3"/>
+      <cable id = "42" name = "dend_2_2"/>
+      <cable id = "41" name = "dend_2_1"/>
+      <cable id = "40" name = "dend_2_0"/>
+      <cable id = "47" name = "dend_3_3"/>
+      <cable id = "46" name = "dend_3_2"/>
+      <cable id = "45" name = "dend_3_1"/>
+      <cable id = "44" name = "dend_3_0"/>
+      <cable id = "51" name = "dend_4_3"/>
+      <cable id = "50" name = "dend_4_2"/>
+      <cable id = "49" name = "dend_4_1"/>
+      <cable id = "48" name = "dend_4_0"/>
+      <cablegroup name="ModelViewParmSubset_0"> 
+        <cable id = "55"/>
+        <cable id = "54"/>
+        <cable id = "53"/>
+        <cable id = "52"/>
+        <cable id = "35"/>
+        <cable id = "34"/>
+        <cable id = "33"/>
+        <cable id = "32"/>
+        <cable id = "31"/>
+        <cable id = "30"/>
+        <cable id = "29"/>
+        <cable id = "28"/>
+        <cable id = "27"/>
+        <cable id = "26"/>
+        <cable id = "25"/>
+        <cable id = "24"/>
+        <cable id = "23"/>
+        <cable id = "22"/>
+        <cable id = "21"/>
+        <cable id = "20"/>
+        <cable id = "19"/>
+        <cable id = "18"/>
+        <cable id = "17"/>
+        <cable id = "16"/>
+        <cable id = "15"/>
+        <cable id = "14"/>
+        <cable id = "13"/>
+        <cable id = "12"/>
+        <cable id = "11"/>
+        <cable id = "10"/>
+        <cable id = "9"/>
+        <cable id = "8"/>
+        <cable id = "7"/>
+        <cable id = "6"/>
+        <cable id = "5"/>
+        <cable id = "4"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+        <cable id = "0"/>
+        <cable id = "39"/>
+        <cable id = "38"/>
+        <cable id = "37"/>
+        <cable id = "36"/>
+        <cable id = "43"/>
+        <cable id = "42"/>
+        <cable id = "41"/>
+        <cable id = "40"/>
+        <cable id = "47"/>
+        <cable id = "46"/>
+        <cable id = "45"/>
+        <cable id = "44"/>
+        <cable id = "51"/>
+        <cable id = "50"/>
+        <cable id = "49"/>
+        <cable id = "48"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_1"> 
+        <cable id = "35"/>
+        <cable id = "34"/>
+        <cable id = "33"/>
+        <cable id = "32"/>
+        <cable id = "31"/>
+        <cable id = "30"/>
+        <cable id = "29"/>
+        <cable id = "28"/>
+        <cable id = "27"/>
+        <cable id = "26"/>
+        <cable id = "25"/>
+        <cable id = "24"/>
+        <cable id = "23"/>
+        <cable id = "22"/>
+        <cable id = "21"/>
+        <cable id = "20"/>
+        <cable id = "19"/>
+        <cable id = "18"/>
+        <cable id = "17"/>
+        <cable id = "16"/>
+        <cable id = "15"/>
+        <cable id = "14"/>
+        <cable id = "13"/>
+        <cable id = "12"/>
+        <cable id = "11"/>
+        <cable id = "10"/>
+        <cable id = "9"/>
+        <cable id = "8"/>
+        <cable id = "7"/>
+        <cable id = "6"/>
+        <cable id = "5"/>
+        <cable id = "4"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+        <cable id = "0"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_2"> 
+        <cable id = "35"/>
+        <cable id = "34"/>
+        <cable id = "33"/>
+        <cable id = "32"/>
+        <cable id = "31"/>
+        <cable id = "30"/>
+        <cable id = "29"/>
+        <cable id = "28"/>
+        <cable id = "27"/>
+        <cable id = "26"/>
+        <cable id = "25"/>
+        <cable id = "24"/>
+        <cable id = "23"/>
+        <cable id = "22"/>
+        <cable id = "21"/>
+        <cable id = "20"/>
+        <cable id = "19"/>
+        <cable id = "18"/>
+        <cable id = "17"/>
+        <cable id = "16"/>
+        <cable id = "15"/>
+        <cable id = "14"/>
+        <cable id = "13"/>
+        <cable id = "12"/>
+        <cable id = "11"/>
+        <cable id = "10"/>
+        <cable id = "9"/>
+        <cable id = "8"/>
+        <cable id = "7"/>
+        <cable id = "6"/>
+        <cable id = "5"/>
+        <cable id = "4"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+        <cable id = "0"/>
+        <cable id = "39"/>
+        <cable id = "38"/>
+        <cable id = "37"/>
+        <cable id = "36"/>
+        <cable id = "43"/>
+        <cable id = "42"/>
+        <cable id = "41"/>
+        <cable id = "40"/>
+        <cable id = "47"/>
+        <cable id = "46"/>
+        <cable id = "45"/>
+        <cable id = "44"/>
+        <cable id = "51"/>
+        <cable id = "50"/>
+        <cable id = "49"/>
+        <cable id = "48"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_3"> 
+        <cable id = "0"/>
+        <cable id = "39"/>
+        <cable id = "38"/>
+        <cable id = "37"/>
+        <cable id = "36"/>
+        <cable id = "43"/>
+        <cable id = "42"/>
+        <cable id = "41"/>
+        <cable id = "40"/>
+        <cable id = "47"/>
+        <cable id = "46"/>
+        <cable id = "45"/>
+        <cable id = "44"/>
+        <cable id = "51"/>
+        <cable id = "50"/>
+        <cable id = "49"/>
+        <cable id = "48"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_4"> 
+        <cable id = "0"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_5"> 
+        <cable id = "55"/>
+        <cable id = "53"/>
+        <cable id = "52"/>
+        <cable id = "35"/>
+        <cable id = "34"/>
+        <cable id = "33"/>
+        <cable id = "32"/>
+        <cable id = "31"/>
+        <cable id = "30"/>
+        <cable id = "29"/>
+        <cable id = "28"/>
+        <cable id = "27"/>
+        <cable id = "26"/>
+        <cable id = "25"/>
+        <cable id = "24"/>
+        <cable id = "23"/>
+        <cable id = "22"/>
+        <cable id = "21"/>
+        <cable id = "20"/>
+        <cable id = "19"/>
+        <cable id = "18"/>
+        <cable id = "17"/>
+        <cable id = "16"/>
+        <cable id = "15"/>
+        <cable id = "14"/>
+        <cable id = "13"/>
+        <cable id = "12"/>
+        <cable id = "11"/>
+        <cable id = "10"/>
+        <cable id = "9"/>
+        <cable id = "8"/>
+        <cable id = "7"/>
+        <cable id = "6"/>
+        <cable id = "5"/>
+        <cable id = "4"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+        <cable id = "0"/>
+        <cable id = "39"/>
+        <cable id = "38"/>
+        <cable id = "37"/>
+        <cable id = "36"/>
+        <cable id = "43"/>
+        <cable id = "42"/>
+        <cable id = "41"/>
+        <cable id = "40"/>
+        <cable id = "47"/>
+        <cable id = "46"/>
+        <cable id = "45"/>
+        <cable id = "44"/>
+        <cable id = "51"/>
+        <cable id = "50"/>
+        <cable id = "49"/>
+        <cable id = "48"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_6"> 
+        <cable id = "55"/>
+        <cable id = "54"/>
+        <cable id = "35"/>
+        <cable id = "34"/>
+        <cable id = "33"/>
+        <cable id = "32"/>
+        <cable id = "31"/>
+        <cable id = "30"/>
+        <cable id = "29"/>
+        <cable id = "28"/>
+        <cable id = "27"/>
+        <cable id = "26"/>
+        <cable id = "25"/>
+        <cable id = "24"/>
+        <cable id = "23"/>
+        <cable id = "22"/>
+        <cable id = "21"/>
+        <cable id = "20"/>
+        <cable id = "19"/>
+        <cable id = "18"/>
+        <cable id = "17"/>
+        <cable id = "16"/>
+        <cable id = "15"/>
+        <cable id = "14"/>
+        <cable id = "13"/>
+        <cable id = "12"/>
+        <cable id = "11"/>
+        <cable id = "10"/>
+        <cable id = "9"/>
+        <cable id = "8"/>
+        <cable id = "7"/>
+        <cable id = "6"/>
+        <cable id = "5"/>
+        <cable id = "4"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+        <cable id = "0"/>
+        <cable id = "39"/>
+        <cable id = "38"/>
+        <cable id = "37"/>
+        <cable id = "36"/>
+        <cable id = "43"/>
+        <cable id = "42"/>
+        <cable id = "41"/>
+        <cable id = "40"/>
+        <cable id = "47"/>
+        <cable id = "46"/>
+        <cable id = "45"/>
+        <cable id = "44"/>
+        <cable id = "51"/>
+        <cable id = "50"/>
+        <cable id = "49"/>
+        <cable id = "48"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_7"> 
+        <cable id = "0"/>
+        <cable id = "39"/>
+        <cable id = "38"/>
+        <cable id = "37"/>
+        <cable id = "36"/>
+        <cable id = "43"/>
+        <cable id = "42"/>
+        <cable id = "41"/>
+        <cable id = "40"/>
+        <cable id = "47"/>
+        <cable id = "46"/>
+        <cable id = "45"/>
+        <cable id = "44"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_8"> 
+        <cable id = "51"/>
+        <cable id = "50"/>
+        <cable id = "49"/>
+        <cable id = "48"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_9"> 
+        <cable id = "39"/>
+        <cable id = "38"/>
+        <cable id = "37"/>
+        <cable id = "36"/>
+        <cable id = "43"/>
+        <cable id = "42"/>
+        <cable id = "41"/>
+        <cable id = "40"/>
+        <cable id = "47"/>
+        <cable id = "46"/>
+        <cable id = "45"/>
+        <cable id = "44"/>
+        <cable id = "51"/>
+        <cable id = "50"/>
+        <cable id = "49"/>
+        <cable id = "48"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_10"> 
+        <cable id = "35"/>
+        <cable id = "34"/>
+        <cable id = "33"/>
+        <cable id = "32"/>
+        <cable id = "31"/>
+        <cable id = "30"/>
+        <cable id = "29"/>
+        <cable id = "28"/>
+        <cable id = "27"/>
+        <cable id = "26"/>
+        <cable id = "25"/>
+        <cable id = "24"/>
+        <cable id = "23"/>
+        <cable id = "22"/>
+        <cable id = "21"/>
+        <cable id = "20"/>
+        <cable id = "19"/>
+        <cable id = "18"/>
+        <cable id = "17"/>
+        <cable id = "16"/>
+        <cable id = "15"/>
+        <cable id = "14"/>
+        <cable id = "13"/>
+        <cable id = "12"/>
+        <cable id = "11"/>
+        <cable id = "10"/>
+        <cable id = "9"/>
+        <cable id = "8"/>
+        <cable id = "7"/>
+        <cable id = "6"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_11"> 
+        <cable id = "5"/>
+        <cable id = "4"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_12"> 
+        <cable id = "55"/>
+        <cable id = "54"/>
+        <cable id = "53"/>
+        <cable id = "52"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_13"> 
+        <cable id = "39"/>
+        <cable id = "38"/>
+        <cable id = "37"/>
+        <cable id = "36"/>
+        <cable id = "43"/>
+        <cable id = "42"/>
+        <cable id = "41"/>
+        <cable id = "40"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_14"> 
+        <cable id = "47"/>
+        <cable id = "46"/>
+        <cable id = "45"/>
+        <cable id = "44"/>
+        <cable id = "51"/>
+        <cable id = "50"/>
+        <cable id = "49"/>
+        <cable id = "48"/>
+      </cablegroup>
+      <cablegroup name="OneSecGrp_SectionRef_57"> <!-- Creating a group containing a single section: GrC[0].branch2... -->
+        <cable id = "54"/>
+      </cablegroup>
+      <cablegroup name="OneSecGrp_SectionRef_58"> <!-- Creating a group containing a single section: GrC[0].branch1... -->
+        <cable id = "53"/>
+      </cablegroup>
+      <cablegroup name="OneSecGrp_SectionRef_59"> <!-- Creating a group containing a single section: GrC[0].branch0... -->
+        <cable id = "52"/>
+      </cablegroup>
+      <cablegroup name="OneSecGrp_SectionRef_95"> <!-- Creating a group containing a single section: GrC[0].soma... -->
+        <cable id = "0"/>
+      </cablegroup>
+    </cables>
+    <biophysics  units = "Physiological Units"> <!-- Note: values of cond dens are different in NEURON and phy units-->
+      <bio:mechanism name="GRC_CA" type="Channel Mechanism">
+        <bio:parameter name="Aalpha" value="0.04944">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kalpha" value="15.873">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0alpha" value="-29.06">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Abeta" value="0.08298">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kbeta" value="-25.641">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0beta" value="-18.66">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Aalpha" value="0.0013">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kalpha" value="-18.183">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0alpha" value="-48">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Abeta" value="0.0013">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kbeta" value="83.33">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0beta" value="-48">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gcabar" value="0">  
+          <bio:group>ModelViewParmSubset_7</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gcabar" value="0.00584247">  
+          <bio:group>ModelViewParmSubset_8</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:mechanism name="GRC_CALC" type="Channel Mechanism">
+        <bio:parameter name="d" value="0.2">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="cai0" value="0.0001">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+        <bio:parameter name="cai0" value="0.00225">  
+          <bio:group>ModelViewParmSubset_9</bio:group>
+        </bio:parameter>
+        <bio:parameter name="beta" value="0.6">  
+          <bio:group>ModelViewParmSubset_9</bio:group>
+        </bio:parameter>
+        <bio:parameter name="beta" value="1.5">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:mechanism name="GRC_KA" type="Channel Mechanism">
+        <bio:parameter name="Aalpha" value="0.8147">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kalpha" value="-23.3271">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0alpha" value="-9.17203">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Abeta" value="0.1655">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kbeta" value="19.4718">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0beta" value="-18.2791">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Aalpha" value="0.0368">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kalpha" value="12.8433">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0alpha" value="-111.332">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Abeta" value="0.0345">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kbeta" value="-8.90123">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0beta" value="-49.9537">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0" value="-38">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="K" value="-17">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0" value="-78.8">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="K" value="8.4">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gkbar" value="0">  
+          <bio:group>ModelViewParmSubset_9</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gkbar" value="0.00906137">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:mechanism name="GRC_KCA" type="Channel Mechanism">
+        <bio:parameter name="Aalpha" value="2.5">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Balpha" value="0.0015">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kalpha" value="-11.765">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Abeta" value="1.5">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Bbeta" value="0.00015">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kbeta" value="-11.765">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gkbar" value="0">  
+          <bio:group>ModelViewParmSubset_7</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gkbar" value="0.038103">  
+          <bio:group>ModelViewParmSubset_8</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:mechanism name="GRC_KIR" type="Channel Mechanism">
+        <bio:parameter name="Aalpha" value="0.13289">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kalpha" value="-24.3902">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0alpha" value="-83.94">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Abeta" value="0.16994">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kbeta" value="35.714">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0beta" value="-83.94">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gkbar" value="0">  
+          <bio:group>ModelViewParmSubset_9</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gkbar" value="0.00254851">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:mechanism name="GRC_KM" type="Channel Mechanism">
+        <bio:parameter name="Aalpha" value="0.0033">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kalpha" value="40">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0alpha" value="-30">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Abeta" value="0.0033">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kbeta" value="-20">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0beta" value="-30">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0" value="-35">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+        <bio:parameter name="B" value="6">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gkbar" value="0.00025">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:mechanism name="GRC_KV" type="Channel Mechanism">
+        <bio:parameter name="Aalpha" value="-0.01">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kalpha" value="-10">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0alpha" value="-25">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Abeta" value="0.125">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Kbeta" value="-80">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="V0beta" value="-35">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gkbar" value="0">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gkbar" value="0.00447431">  
+          <bio:group>ModelViewParmSubset_10</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gkbar" value="0.035673">  
+          <bio:group>ModelViewParmSubset_11</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:mechanism name="GRC_LKG1" type="Channel Mechanism">
+        <bio:parameter name="gl" value="5e-09">  
+          <bio:group>ModelViewParmSubset_12</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gl" value="8.57593e-06">  
+          <bio:group>ModelViewParmSubset_10</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gl" value="2.25443e-05">  
+          <bio:group>ModelViewParmSubset_13</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gl" value="4.50886e-05">  
+          <bio:group>ModelViewParmSubset_14</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gl" value="9.6189e-05">  
+          <bio:group>ModelViewParmSubset_11</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gl" value="0.000107226">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+        <bio:parameter name="el" value="-16.5">  
+          <bio:group>all</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:mechanism name="GRC_LKG2" type="Channel Mechanism">
+        <bio:parameter name="ggaba" value="0">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+        <bio:parameter name="ggaba" value="4.76288e-05">  
+          <bio:group>ModelViewParmSubset_13</bio:group>
+        </bio:parameter>
+        <bio:parameter name="ggaba" value="9.52576e-05">  
+          <bio:group>ModelViewParmSubset_14</bio:group>
+        </bio:parameter>
+        <bio:parameter name="egaba" value="-65">  
+          <bio:group>ModelViewParmSubset_3</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:mechanism name="GRC_NA" type="Channel Mechanism">
+        <bio:parameter name="gnabar" value="0">  
+          <bio:group>OneSecGrp_SectionRef_95</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gnabar" value="0.027122">  
+          <bio:group>ModelViewParmSubset_10</bio:group>
+        </bio:parameter>
+        <bio:parameter name="gnabar" value="0.238889">  
+          <bio:group>ModelViewParmSubset_11</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Aalfa" value="353.91">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Valfa" value="13.99">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Abeta" value="1.272">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Vbeta" value="13.99">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Agamma" value="150">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Adelta" value="40">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Aepsilon" value="1.75">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Ateta" value="0.0201">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="Vteta" value="25">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="ACon" value="0.005">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="ACoff" value="0.5">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="AOon" value="0.75">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="AOoff" value="0.005">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="n1" value="5.422">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="n2" value="3.279">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="n3" value="1.83">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+        <bio:parameter name="n4" value="0.738">  
+          <bio:group>ModelViewParmSubset_1</bio:group>
+        </bio:parameter>
+      </bio:mechanism>
+      <bio:spec_capacitance>
+        <bio:parameter value="0.45">  
+          <bio:group>OneSecGrp_SectionRef_58</bio:group>
+        </bio:parameter>
+        <bio:parameter value="0.5">  
+          <bio:group>OneSecGrp_SectionRef_59</bio:group>
+        </bio:parameter>
+        <bio:parameter value="1">  
+          <bio:group>ModelViewParmSubset_6</bio:group>
+        </bio:parameter>
+      </bio:spec_capacitance>
+      <bio:spec_axial_resistance>
+        <bio:parameter value="0.09">  
+          <bio:group>OneSecGrp_SectionRef_57</bio:group>
+        </bio:parameter>
+        <bio:parameter value="0.1">  
+          <bio:group>ModelViewParmSubset_5</bio:group>
+        </bio:parameter>
+      </bio:spec_axial_resistance>
+    </biophysics>
+  </cell>
+</cells>
+</neuroml>
