@@ -1,0 +1,930 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://morphml.org/neuroml/schema"
+    xmlns:mml="http://morphml.org/morphml/schema"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xmlns:bio="http://morphml.org/biophysics/schema"
+    xmlns:cml="http://morphml.org/channelml/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://morphml.org/neuroml/schema http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level3/NeuroML_Level3_v1.8.1.xsd"
+    name = "NeuroML Level 1 file exported from NEURON"
+    lengthUnits="micron">
+
+<meta:notes>NeuroML Level 1 file generated from ModelView by: NEURON -- Release 7.3 (849:5be3d097b917) 2013-04-11
+Authors: Michael Hines, Sushil Kambampati and Padraig Gleeson,
+Yale University and UCL</meta:notes>
+
+<cells>
+  <cell name="GrC_0">
+    <meta:notes>Cell: GrC_0 exported from NEURON ModelView</meta:notes>
+    <segments  xmlns="http://morphml.org/morphml/schema"> <!-- Changing the namespace from neuroml to morphml-->
+<!-- Section: GrC[0].branch3 -->
+      <segment id="0" name = "Seg0_branch3" cable = "55">
+        <proximal x="0" y="0" z="0" diameter="0.1"/>
+        <distal x="100" y="0" z="0" diameter="0.1"/>
+      </segment>
+      <segment id="112" name = "Seg1_branch3" parent="0" cable = "55">
+        <distal x="200" y="0" z="0" diameter="0.1"/>
+      </segment>
+<!-- Section: GrC[0].branch2 -->
+      <segment id="109" name = "Seg0_branch2" parent="110" cable = "54">  <!-- Connected at 0 on parent section: GrC[0].branch3  -->
+        <proximal x="0" y="0" z="0" diameter="0.1"/>
+        <distal x="-5" y="4.37114e-07" z="0" diameter="0.1"/>
+      </segment>
+      <segment id="110" name = "Seg1_branch2" parent="109" cable = "54">
+        <distal x="-10" y="8.74228e-07" z="0" diameter="0.1"/>
+      </segment>
+<!-- Section: GrC[0].branch1 -->
+      <segment id="107" name = "Seg0_branch1" parent="108" cable = "53">  <!-- Connected at 0 on parent section: GrC[0].branch2  -->
+        <proximal x="-10" y="8.74228e-07" z="0" diameter="0.2"/>
+        <distal x="-12.5" y="1.25172e-06" z="0" diameter="0.2"/>
+      </segment>
+      <segment id="108" name = "Seg1_branch1" parent="107" cable = "53">
+        <distal x="-15" y="1.62921e-06" z="0" diameter="0.2"/>
+      </segment>
+<!-- Section: GrC[0].branch0 -->
+      <segment id="105" name = "Seg0_branch0" parent="106" cable = "52">  <!-- Connected at 0 on parent section: GrC[0].branch1  -->
+        <proximal x="-15" y="1.62921e-06" z="0" diameter="0.3"/>
+        <distal x="-16.5" y="1.8557e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="106" name = "Seg1_branch0" parent="105" cable = "52">
+        <distal x="-18" y="2.08219e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[29] -->
+      <segment id="71" name = "Seg0_axon_29" parent="104" cable = "35">  <!-- Connected at 0 on parent section: GrC[0].branch0  -->
+        <proximal x="-18" y="2.08219e-06" z="0" diameter="0.3"/>
+        <distal x="-19.1684" y="2.25861e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="72" name = "Seg1_axon_29" parent="71" cable = "35">
+        <distal x="-20.3367" y="2.43503e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[28] -->
+      <segment id="69" name = "Seg0_axon_28" parent="70" cable = "34">  <!-- Connected at 0 on parent section: GrC[0].axon[29]  -->
+        <proximal x="-20.3367" y="2.43503e-06" z="0" diameter="0.3"/>
+        <distal x="-21.5051" y="2.61144e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="70" name = "Seg1_axon_28" parent="69" cable = "34">
+        <distal x="-22.6734" y="2.78786e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[27] -->
+      <segment id="67" name = "Seg0_axon_27" parent="68" cable = "33">  <!-- Connected at 0 on parent section: GrC[0].axon[28]  -->
+        <proximal x="-22.6734" y="2.78786e-06" z="0" diameter="0.3"/>
+        <distal x="-23.8418" y="2.96427e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="68" name = "Seg1_axon_27" parent="67" cable = "33">
+        <distal x="-25.0101" y="3.14069e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[26] -->
+      <segment id="65" name = "Seg0_axon_26" parent="66" cable = "32">  <!-- Connected at 0 on parent section: GrC[0].axon[27]  -->
+        <proximal x="-25.0101" y="3.14069e-06" z="0" diameter="0.3"/>
+        <distal x="-26.1785" y="3.31711e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="66" name = "Seg1_axon_26" parent="65" cable = "32">
+        <distal x="-27.3468" y="3.49352e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[25] -->
+      <segment id="63" name = "Seg0_axon_25" parent="64" cable = "31">  <!-- Connected at 0 on parent section: GrC[0].axon[26]  -->
+        <proximal x="-27.3468" y="3.49352e-06" z="0" diameter="0.3"/>
+        <distal x="-28.5152" y="3.66994e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="64" name = "Seg1_axon_25" parent="63" cable = "31">
+        <distal x="-29.6835" y="3.84635e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[24] -->
+      <segment id="61" name = "Seg0_axon_24" parent="62" cable = "30">  <!-- Connected at 0 on parent section: GrC[0].axon[25]  -->
+        <proximal x="-29.6835" y="3.84635e-06" z="0" diameter="0.3"/>
+        <distal x="-30.8519" y="4.02277e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="62" name = "Seg1_axon_24" parent="61" cable = "30">
+        <distal x="-32.0202" y="4.19919e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[23] -->
+      <segment id="59" name = "Seg0_axon_23" parent="60" cable = "29">  <!-- Connected at 0 on parent section: GrC[0].axon[24]  -->
+        <proximal x="-32.0202" y="4.19919e-06" z="0" diameter="0.3"/>
+        <distal x="-33.1886" y="4.3756e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="60" name = "Seg1_axon_23" parent="59" cable = "29">
+        <distal x="-34.3569" y="4.55202e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[22] -->
+      <segment id="57" name = "Seg0_axon_22" parent="58" cable = "28">  <!-- Connected at 0 on parent section: GrC[0].axon[23]  -->
+        <proximal x="-34.3569" y="4.55202e-06" z="0" diameter="0.3"/>
+        <distal x="-35.5253" y="4.72843e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="58" name = "Seg1_axon_22" parent="57" cable = "28">
+        <distal x="-36.6936" y="4.90485e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[21] -->
+      <segment id="55" name = "Seg0_axon_21" parent="56" cable = "27">  <!-- Connected at 0 on parent section: GrC[0].axon[22]  -->
+        <proximal x="-36.6936" y="4.90485e-06" z="0" diameter="0.3"/>
+        <distal x="-37.862" y="5.08127e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="56" name = "Seg1_axon_21" parent="55" cable = "27">
+        <distal x="-39.0303" y="5.25768e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[20] -->
+      <segment id="53" name = "Seg0_axon_20" parent="54" cable = "26">  <!-- Connected at 0 on parent section: GrC[0].axon[21]  -->
+        <proximal x="-39.0303" y="5.25768e-06" z="0" diameter="0.3"/>
+        <distal x="-40.1987" y="5.4341e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="54" name = "Seg1_axon_20" parent="53" cable = "26">
+        <distal x="-41.367" y="5.61051e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[19] -->
+      <segment id="51" name = "Seg0_axon_19" parent="52" cable = "25">  <!-- Connected at 0 on parent section: GrC[0].axon[20]  -->
+        <proximal x="-41.367" y="5.61051e-06" z="0" diameter="0.3"/>
+        <distal x="-42.5354" y="5.78693e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="52" name = "Seg1_axon_19" parent="51" cable = "25">
+        <distal x="-43.7037" y="5.96335e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[18] -->
+      <segment id="49" name = "Seg0_axon_18" parent="50" cable = "24">  <!-- Connected at 0 on parent section: GrC[0].axon[19]  -->
+        <proximal x="-43.7037" y="5.96335e-06" z="0" diameter="0.3"/>
+        <distal x="-44.8721" y="6.13976e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="50" name = "Seg1_axon_18" parent="49" cable = "24">
+        <distal x="-46.0404" y="6.31618e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[17] -->
+      <segment id="47" name = "Seg0_axon_17" parent="48" cable = "23">  <!-- Connected at 0 on parent section: GrC[0].axon[18]  -->
+        <proximal x="-46.0404" y="6.31618e-06" z="0" diameter="0.3"/>
+        <distal x="-47.2088" y="6.49259e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="48" name = "Seg1_axon_17" parent="47" cable = "23">
+        <distal x="-48.3771" y="6.66901e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[16] -->
+      <segment id="45" name = "Seg0_axon_16" parent="46" cable = "22">  <!-- Connected at 0 on parent section: GrC[0].axon[17]  -->
+        <proximal x="-48.3771" y="6.66901e-06" z="0" diameter="0.3"/>
+        <distal x="-49.5455" y="6.84543e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="46" name = "Seg1_axon_16" parent="45" cable = "22">
+        <distal x="-50.7138" y="7.02184e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[15] -->
+      <segment id="43" name = "Seg0_axon_15" parent="44" cable = "21">  <!-- Connected at 0 on parent section: GrC[0].axon[16]  -->
+        <proximal x="-50.7138" y="7.02184e-06" z="0" diameter="0.3"/>
+        <distal x="-51.8822" y="7.19826e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="44" name = "Seg1_axon_15" parent="43" cable = "21">
+        <distal x="-53.0505" y="7.37467e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[14] -->
+      <segment id="41" name = "Seg0_axon_14" parent="42" cable = "20">  <!-- Connected at 0 on parent section: GrC[0].axon[15]  -->
+        <proximal x="-53.0505" y="7.37467e-06" z="0" diameter="0.3"/>
+        <distal x="-54.2189" y="7.55109e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="42" name = "Seg1_axon_14" parent="41" cable = "20">
+        <distal x="-55.3872" y="7.72751e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[13] -->
+      <segment id="39" name = "Seg0_axon_13" parent="40" cable = "19">  <!-- Connected at 0 on parent section: GrC[0].axon[14]  -->
+        <proximal x="-55.3872" y="7.72751e-06" z="0" diameter="0.3"/>
+        <distal x="-56.5556" y="7.90392e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="40" name = "Seg1_axon_13" parent="39" cable = "19">
+        <distal x="-57.7239" y="8.08034e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[12] -->
+      <segment id="37" name = "Seg0_axon_12" parent="38" cable = "18">  <!-- Connected at 0 on parent section: GrC[0].axon[13]  -->
+        <proximal x="-57.7239" y="8.08034e-06" z="0" diameter="0.3"/>
+        <distal x="-58.8923" y="8.25675e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="38" name = "Seg1_axon_12" parent="37" cable = "18">
+        <distal x="-60.0606" y="8.43317e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[11] -->
+      <segment id="35" name = "Seg0_axon_11" parent="36" cable = "17">  <!-- Connected at 0 on parent section: GrC[0].axon[12]  -->
+        <proximal x="-60.0606" y="8.43317e-06" z="0" diameter="0.3"/>
+        <distal x="-61.229" y="8.60959e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="36" name = "Seg1_axon_11" parent="35" cable = "17">
+        <distal x="-62.3973" y="8.786e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[10] -->
+      <segment id="33" name = "Seg0_axon_10" parent="34" cable = "16">  <!-- Connected at 0 on parent section: GrC[0].axon[11]  -->
+        <proximal x="-62.3973" y="8.786e-06" z="0" diameter="0.3"/>
+        <distal x="-63.5657" y="8.96242e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="34" name = "Seg1_axon_10" parent="33" cable = "16">
+        <distal x="-64.734" y="9.13883e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[9] -->
+      <segment id="31" name = "Seg0_axon_9" parent="32" cable = "15">  <!-- Connected at 0 on parent section: GrC[0].axon[10]  -->
+        <proximal x="-64.734" y="9.13883e-06" z="0" diameter="0.3"/>
+        <distal x="-65.9024" y="9.31525e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="32" name = "Seg1_axon_9" parent="31" cable = "15">
+        <distal x="-67.0707" y="9.49167e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[8] -->
+      <segment id="29" name = "Seg0_axon_8" parent="30" cable = "14">  <!-- Connected at 0 on parent section: GrC[0].axon[9]  -->
+        <proximal x="-67.0707" y="9.49167e-06" z="0" diameter="0.3"/>
+        <distal x="-68.2391" y="9.66808e-06" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="30" name = "Seg1_axon_8" parent="29" cable = "14">
+        <distal x="-69.4074" y="9.8445e-06" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[7] -->
+      <segment id="27" name = "Seg0_axon_7" parent="28" cable = "13">  <!-- Connected at 0 on parent section: GrC[0].axon[8]  -->
+        <proximal x="-69.4074" y="9.8445e-06" z="0" diameter="0.3"/>
+        <distal x="-70.5758" y="1.00209e-05" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="28" name = "Seg1_axon_7" parent="27" cable = "13">
+        <distal x="-71.7441" y="1.01973e-05" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[6] -->
+      <segment id="25" name = "Seg0_axon_6" parent="26" cable = "12">  <!-- Connected at 0 on parent section: GrC[0].axon[7]  -->
+        <proximal x="-71.7441" y="1.01973e-05" z="0" diameter="0.3"/>
+        <distal x="-72.9125" y="1.03737e-05" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="26" name = "Seg1_axon_6" parent="25" cable = "12">
+        <distal x="-74.0808" y="1.05502e-05" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[5] -->
+      <segment id="23" name = "Seg0_axon_5" parent="24" cable = "11">  <!-- Connected at 0 on parent section: GrC[0].axon[6]  -->
+        <proximal x="-74.0808" y="1.05502e-05" z="0" diameter="0.3"/>
+        <distal x="-75.2492" y="1.07266e-05" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="24" name = "Seg1_axon_5" parent="23" cable = "11">
+        <distal x="-76.4175" y="1.0903e-05" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[4] -->
+      <segment id="21" name = "Seg0_axon_4" parent="22" cable = "10">  <!-- Connected at 0 on parent section: GrC[0].axon[5]  -->
+        <proximal x="-76.4175" y="1.0903e-05" z="0" diameter="0.3"/>
+        <distal x="-77.5859" y="1.10794e-05" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="22" name = "Seg1_axon_4" parent="21" cable = "10">
+        <distal x="-78.7542" y="1.12558e-05" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[3] -->
+      <segment id="19" name = "Seg0_axon_3" parent="20" cable = "9">  <!-- Connected at 0 on parent section: GrC[0].axon[4]  -->
+        <proximal x="-78.7542" y="1.12558e-05" z="0" diameter="0.3"/>
+        <distal x="-79.9226" y="1.14322e-05" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="20" name = "Seg1_axon_3" parent="19" cable = "9">
+        <distal x="-81.0909" y="1.16087e-05" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[2] -->
+      <segment id="17" name = "Seg0_axon_2" parent="18" cable = "8">  <!-- Connected at 0 on parent section: GrC[0].axon[3]  -->
+        <proximal x="-81.0909" y="1.16087e-05" z="0" diameter="0.3"/>
+        <distal x="-82.2593" y="1.17851e-05" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="18" name = "Seg1_axon_2" parent="17" cable = "8">
+        <distal x="-83.4276" y="1.19615e-05" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[1] -->
+      <segment id="15" name = "Seg0_axon_1" parent="16" cable = "7">  <!-- Connected at 0 on parent section: GrC[0].axon[2]  -->
+        <proximal x="-83.4276" y="1.19615e-05" z="0" diameter="0.3"/>
+        <distal x="-84.596" y="1.21379e-05" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="16" name = "Seg1_axon_1" parent="15" cable = "7">
+        <distal x="-85.7643" y="1.23143e-05" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].axon[0] -->
+      <segment id="13" name = "Seg0_axon_0" parent="14" cable = "6">  <!-- Connected at 0 on parent section: GrC[0].axon[1]  -->
+        <proximal x="-85.7643" y="1.23143e-05" z="0" diameter="0.3"/>
+        <distal x="-86.9327" y="1.24907e-05" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="14" name = "Seg1_axon_0" parent="13" cable = "6">
+        <distal x="-88.101" y="1.26672e-05" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].hillock[4] -->
+      <segment id="11" name = "Seg0_hillock_4" parent="12" cable = "5">  <!-- Connected at 0 on parent section: GrC[0].axon[0]  -->
+        <proximal x="-88.101" y="1.26672e-05" z="0" diameter="0.3"/>
+        <distal x="-88.351" y="1.27049e-05" z="0" diameter="0.3"/>
+      </segment>
+      <segment id="12" name = "Seg1_hillock_4" parent="11" cable = "5">
+        <distal x="-88.601" y="1.27427e-05" z="0" diameter="0.3"/>
+      </segment>
+<!-- Section: GrC[0].hillock[3] -->
+      <segment id="9" name = "Seg0_hillock_3" parent="10" cable = "4">  <!-- Connected at 0 on parent section: GrC[0].hillock[4]  -->
+        <proximal x="-88.601" y="1.27427e-05" z="0" diameter="0.8"/>
+        <distal x="-88.851" y="1.27804e-05" z="0" diameter="0.8"/>
+      </segment>
+      <segment id="10" name = "Seg1_hillock_3" parent="9" cable = "4">
+        <distal x="-89.101" y="1.28182e-05" z="0" diameter="0.8"/>
+      </segment>
+<!-- Section: GrC[0].hillock[2] -->
+      <segment id="7" name = "Seg0_hillock_2" parent="8" cable = "3">  <!-- Connected at 0 on parent section: GrC[0].hillock[3]  -->
+        <proximal x="-89.101" y="1.28182e-05" z="0" diameter="1.3"/>
+        <distal x="-89.351" y="1.28559e-05" z="0" diameter="1.3"/>
+      </segment>
+      <segment id="8" name = "Seg1_hillock_2" parent="7" cable = "3">
+        <distal x="-89.601" y="1.28936e-05" z="0" diameter="1.3"/>
+      </segment>
+<!-- Section: GrC[0].hillock[1] -->
+      <segment id="5" name = "Seg0_hillock_1" parent="6" cable = "2">  <!-- Connected at 0 on parent section: GrC[0].hillock[2]  -->
+        <proximal x="-89.601" y="1.28936e-05" z="0" diameter="1.8"/>
+        <distal x="-89.851" y="1.29314e-05" z="0" diameter="1.8"/>
+      </segment>
+      <segment id="6" name = "Seg1_hillock_1" parent="5" cable = "2">
+        <distal x="-90.101" y="1.29691e-05" z="0" diameter="1.8"/>
+      </segment>
+<!-- Section: GrC[0].hillock[0] -->
+      <segment id="3" name = "Seg0_hillock_0" parent="4" cable = "1">  <!-- Connected at 0 on parent section: GrC[0].hillock[1]  -->
+        <proximal x="-90.101" y="1.29691e-05" z="0" diameter="2.3"/>
+        <distal x="-90.351" y="1.30069e-05" z="0" diameter="2.3"/>
+      </segment>
+      <segment id="4" name = "Seg1_hillock_0" parent="3" cable = "1">
+        <distal x="-90.601" y="1.30446e-05" z="0" diameter="2.3"/>
+      </segment>
+<!-- Section: GrC[0].soma -->
+      <segment id="1" name = "Seg0_soma" parent="2" cable = "0">  <!-- Connected at 0 on parent section: GrC[0].hillock[0]  -->
+        <proximal x="-90.601" y="1.30446e-05" z="0" diameter="5.8"/>
+        <distal x="-93.501" y="1.34825e-05" z="0" diameter="5.8"/>
+      </segment>
+      <segment id="2" name = "Seg1_soma" parent="1" cable = "0">
+        <distal x="-96.401" y="1.39204e-05" z="0" diameter="5.8"/>
+      </segment>
+<!-- Section: GrC[0].dend_1[0] -->
+      <segment id="73" name = "Seg0_dend_1_0" parent="0" cable = "36">  <!-- Connected at 0 on parent section: GrC[0].soma  -->
+        <proximal x="-96.401" y="1.39204e-05" z="0" diameter="0.75"/>
+        <distal x="-98.7037" y="0.97356" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="74" name = "Seg1_dend_1_0" parent="73" cable = "36">
+        <distal x="-101.006" y="1.94711" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_1[1] -->
+      <segment id="75" name = "Seg0_dend_1_1" parent="0" cable = "37">  <!-- Connected at 0 on parent section: GrC[0].soma  -->
+        <proximal x="-96.401" y="1.39204e-05" z="0" diameter="0.75"/>
+        <distal x="-98.8788" y="0.332361" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="76" name = "Seg1_dend_1_1" parent="75" cable = "37">
+        <distal x="-101.357" y="0.664708" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_1[2] -->
+      <segment id="77" name = "Seg0_dend_1_2" parent="0" cable = "38">  <!-- Connected at 0 on parent section: GrC[0].soma  -->
+        <proximal x="-96.401" y="1.39204e-05" z="0" diameter="0.75"/>
+        <distal x="-98.8788" y="-0.332333" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="78" name = "Seg1_dend_1_2" parent="77" cable = "38">
+        <distal x="-101.357" y="-0.664679" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_1[3] -->
+      <segment id="79" name = "Seg0_dend_1_3" parent="0" cable = "39">  <!-- Connected at 0 on parent section: GrC[0].soma  -->
+        <proximal x="-96.401" y="1.39204e-05" z="0" diameter="0.75"/>
+        <distal x="-98.7037" y="-0.973532" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="80" name = "Seg1_dend_1_3" parent="79" cable = "39">
+        <distal x="-101.006" y="-1.94708" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_2[0] -->
+      <segment id="81" name = "Seg0_dend_2_0" parent="72" cable = "40">  <!-- Connected at 0 on parent section: GrC[0].dend_1[0]  -->
+        <proximal x="-101.006" y="1.94711" z="0" diameter="0.75"/>
+        <distal x="-103.309" y="2.92065" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="82" name = "Seg1_dend_2_0" parent="81" cable = "40">
+        <distal x="-105.612" y="3.8942" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_2[1] -->
+      <segment id="83" name = "Seg0_dend_2_1" parent="74" cable = "41">  <!-- Connected at 0 on parent section: GrC[0].dend_1[1]  -->
+        <proximal x="-101.357" y="0.664708" z="0" diameter="0.75"/>
+        <distal x="-103.834" y="0.997056" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="84" name = "Seg1_dend_2_1" parent="83" cable = "41">
+        <distal x="-106.312" y="1.3294" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_2[2] -->
+      <segment id="85" name = "Seg0_dend_2_2" parent="76" cable = "42">  <!-- Connected at 0 on parent section: GrC[0].dend_1[2]  -->
+        <proximal x="-101.357" y="-0.664679" z="0" diameter="0.75"/>
+        <distal x="-103.834" y="-0.997026" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="86" name = "Seg1_dend_2_2" parent="85" cable = "42">
+        <distal x="-106.312" y="-1.32937" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_2[3] -->
+      <segment id="87" name = "Seg0_dend_2_3" parent="78" cable = "43">  <!-- Connected at 0 on parent section: GrC[0].dend_1[3]  -->
+        <proximal x="-101.006" y="-1.94708" z="0" diameter="0.75"/>
+        <distal x="-103.309" y="-2.92062" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="88" name = "Seg1_dend_2_3" parent="87" cable = "43">
+        <distal x="-105.612" y="-3.89417" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_3[0] -->
+      <segment id="89" name = "Seg0_dend_3_0" parent="80" cable = "44">  <!-- Connected at 0 on parent section: GrC[0].dend_2[0]  -->
+        <proximal x="-105.612" y="3.8942" z="0" diameter="0.75"/>
+        <distal x="-106.763" y="4.38097" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="90" name = "Seg1_dend_3_0" parent="89" cable = "44">
+        <distal x="-107.914" y="4.86775" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_3[1] -->
+      <segment id="91" name = "Seg0_dend_3_1" parent="82" cable = "45">  <!-- Connected at 0 on parent section: GrC[0].dend_2[1]  -->
+        <proximal x="-106.312" y="1.3294" z="0" diameter="0.75"/>
+        <distal x="-107.551" y="1.49558" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="92" name = "Seg1_dend_3_1" parent="91" cable = "45">
+        <distal x="-108.79" y="1.66175" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_3[2] -->
+      <segment id="93" name = "Seg0_dend_3_2" parent="84" cable = "46">  <!-- Connected at 0 on parent section: GrC[0].dend_2[2]  -->
+        <proximal x="-106.312" y="-1.32937" z="0" diameter="0.75"/>
+        <distal x="-107.551" y="-1.49555" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="94" name = "Seg1_dend_3_2" parent="93" cable = "46">
+        <distal x="-108.79" y="-1.66172" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_3[3] -->
+      <segment id="95" name = "Seg0_dend_3_3" parent="86" cable = "47">  <!-- Connected at 0 on parent section: GrC[0].dend_2[3]  -->
+        <proximal x="-105.612" y="-3.89417" z="0" diameter="0.75"/>
+        <distal x="-106.763" y="-4.38094" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="96" name = "Seg1_dend_3_3" parent="95" cable = "47">
+        <distal x="-107.914" y="-4.86771" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_4[0] -->
+      <segment id="97" name = "Seg0_dend_4_0" parent="88" cable = "48">  <!-- Connected at 0 on parent section: GrC[0].dend_3[0]  -->
+        <proximal x="-107.914" y="4.86775" z="0" diameter="0.75"/>
+        <distal x="-109.066" y="5.35452" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="98" name = "Seg1_dend_4_0" parent="97" cable = "48">
+        <distal x="-110.217" y="5.8413" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_4[1] -->
+      <segment id="99" name = "Seg0_dend_4_1" parent="90" cable = "49">  <!-- Connected at 0 on parent section: GrC[0].dend_3[1]  -->
+        <proximal x="-108.79" y="1.66175" z="0" diameter="0.75"/>
+        <distal x="-110.029" y="1.82792" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="100" name = "Seg1_dend_4_1" parent="99" cable = "49">
+        <distal x="-111.268" y="1.9941" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_4[2] -->
+      <segment id="101" name = "Seg0_dend_4_2" parent="92" cable = "50">  <!-- Connected at 0 on parent section: GrC[0].dend_3[2]  -->
+        <proximal x="-108.79" y="-1.66172" z="0" diameter="0.75"/>
+        <distal x="-110.029" y="-1.82789" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="102" name = "Seg1_dend_4_2" parent="101" cable = "50">
+        <distal x="-111.268" y="-1.99406" z="0" diameter="0.75"/>
+      </segment>
+<!-- Section: GrC[0].dend_4[3] -->
+      <segment id="103" name = "Seg0_dend_4_3" parent="94" cable = "51">  <!-- Connected at 0 on parent section: GrC[0].dend_3[3]  -->
+        <proximal x="-107.914" y="-4.86771" z="0" diameter="0.75"/>
+        <distal x="-109.066" y="-5.35449" z="0" diameter="0.75"/>
+      </segment>
+      <segment id="104" name = "Seg1_dend_4_3" parent="103" cable = "51">
+        <distal x="-110.217" y="-5.84126" z="0" diameter="0.75"/>
+      </segment>
+    </segments>
+    <cables  xmlns="http://morphml.org/morphml/schema"> <!-- Changing namespace from neuroml to morphml-->
+      <cable id = "55" name = "branch3" fract_along_parent = "0"/>
+      <cable id = "54" name = "branch2" fract_along_parent = "0"/>
+      <cable id = "53" name = "branch1" fract_along_parent = "0"/>
+      <cable id = "52" name = "branch0" fract_along_parent = "0"/>
+      <cable id = "35" name = "axon_29" fract_along_parent = "0"/>
+      <cable id = "34" name = "axon_28" fract_along_parent = "0"/>
+      <cable id = "33" name = "axon_27" fract_along_parent = "0"/>
+      <cable id = "32" name = "axon_26" fract_along_parent = "0"/>
+      <cable id = "31" name = "axon_25" fract_along_parent = "0"/>
+      <cable id = "30" name = "axon_24" fract_along_parent = "0"/>
+      <cable id = "29" name = "axon_23" fract_along_parent = "0"/>
+      <cable id = "28" name = "axon_22" fract_along_parent = "0"/>
+      <cable id = "27" name = "axon_21" fract_along_parent = "0"/>
+      <cable id = "26" name = "axon_20" fract_along_parent = "0"/>
+      <cable id = "25" name = "axon_19" fract_along_parent = "0"/>
+      <cable id = "24" name = "axon_18" fract_along_parent = "0"/>
+      <cable id = "23" name = "axon_17" fract_along_parent = "0"/>
+      <cable id = "22" name = "axon_16" fract_along_parent = "0"/>
+      <cable id = "21" name = "axon_15" fract_along_parent = "0"/>
+      <cable id = "20" name = "axon_14" fract_along_parent = "0"/>
+      <cable id = "19" name = "axon_13" fract_along_parent = "0"/>
+      <cable id = "18" name = "axon_12" fract_along_parent = "0"/>
+      <cable id = "17" name = "axon_11" fract_along_parent = "0"/>
+      <cable id = "16" name = "axon_10" fract_along_parent = "0"/>
+      <cable id = "15" name = "axon_9" fract_along_parent = "0"/>
+      <cable id = "14" name = "axon_8" fract_along_parent = "0"/>
+      <cable id = "13" name = "axon_7" fract_along_parent = "0"/>
+      <cable id = "12" name = "axon_6" fract_along_parent = "0"/>
+      <cable id = "11" name = "axon_5" fract_along_parent = "0"/>
+      <cable id = "10" name = "axon_4" fract_along_parent = "0"/>
+      <cable id = "9" name = "axon_3" fract_along_parent = "0"/>
+      <cable id = "8" name = "axon_2" fract_along_parent = "0"/>
+      <cable id = "7" name = "axon_1" fract_along_parent = "0"/>
+      <cable id = "6" name = "axon_0" fract_along_parent = "0"/>
+      <cable id = "5" name = "hillock_4" fract_along_parent = "0"/>
+      <cable id = "4" name = "hillock_3" fract_along_parent = "0"/>
+      <cable id = "3" name = "hillock_2" fract_along_parent = "0"/>
+      <cable id = "2" name = "hillock_1" fract_along_parent = "0"/>
+      <cable id = "1" name = "hillock_0" fract_along_parent = "0"/>
+      <cable id = "0" name = "soma" fract_along_parent = "0"/>
+      <cable id = "36" name = "dend_1_0" fract_along_parent = "0"/>
+      <cable id = "37" name = "dend_1_1" fract_along_parent = "0"/>
+      <cable id = "38" name = "dend_1_2" fract_along_parent = "0"/>
+      <cable id = "39" name = "dend_1_3" fract_along_parent = "0"/>
+      <cable id = "40" name = "dend_2_0" fract_along_parent = "0"/>
+      <cable id = "41" name = "dend_2_1" fract_along_parent = "0"/>
+      <cable id = "42" name = "dend_2_2" fract_along_parent = "0"/>
+      <cable id = "43" name = "dend_2_3" fract_along_parent = "0"/>
+      <cable id = "44" name = "dend_3_0" fract_along_parent = "0"/>
+      <cable id = "45" name = "dend_3_1" fract_along_parent = "0"/>
+      <cable id = "46" name = "dend_3_2" fract_along_parent = "0"/>
+      <cable id = "47" name = "dend_3_3" fract_along_parent = "0"/>
+      <cable id = "48" name = "dend_4_0" fract_along_parent = "0"/>
+      <cable id = "49" name = "dend_4_1" fract_along_parent = "0"/>
+      <cable id = "50" name = "dend_4_2" fract_along_parent = "0"/>
+      <cable id = "51" name = "dend_4_3" fract_along_parent = "0"/>
+      <cablegroup name="all"> <!-- Replacing subset name ModelViewParmSubset_0 with all, as it contains all sections -->
+        <cable id = "55"/>
+        <cable id = "54"/>
+        <cable id = "53"/>
+        <cable id = "52"/>
+        <cable id = "35"/>
+        <cable id = "34"/>
+        <cable id = "33"/>
+        <cable id = "32"/>
+        <cable id = "31"/>
+        <cable id = "30"/>
+        <cable id = "29"/>
+        <cable id = "28"/>
+        <cable id = "27"/>
+        <cable id = "26"/>
+        <cable id = "25"/>
+        <cable id = "24"/>
+        <cable id = "23"/>
+        <cable id = "22"/>
+        <cable id = "21"/>
+        <cable id = "20"/>
+        <cable id = "19"/>
+        <cable id = "18"/>
+        <cable id = "17"/>
+        <cable id = "16"/>
+        <cable id = "15"/>
+        <cable id = "14"/>
+        <cable id = "13"/>
+        <cable id = "12"/>
+        <cable id = "11"/>
+        <cable id = "10"/>
+        <cable id = "9"/>
+        <cable id = "8"/>
+        <cable id = "7"/>
+        <cable id = "6"/>
+        <cable id = "5"/>
+        <cable id = "4"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+        <cable id = "0"/>
+        <cable id = "36"/>
+        <cable id = "37"/>
+        <cable id = "38"/>
+        <cable id = "39"/>
+        <cable id = "40"/>
+        <cable id = "41"/>
+        <cable id = "42"/>
+        <cable id = "43"/>
+        <cable id = "44"/>
+        <cable id = "45"/>
+        <cable id = "46"/>
+        <cable id = "47"/>
+        <cable id = "48"/>
+        <cable id = "49"/>
+        <cable id = "50"/>
+        <cable id = "51"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_1"> 
+        <cable id = "35"/>
+        <cable id = "34"/>
+        <cable id = "33"/>
+        <cable id = "32"/>
+        <cable id = "31"/>
+        <cable id = "30"/>
+        <cable id = "29"/>
+        <cable id = "28"/>
+        <cable id = "27"/>
+        <cable id = "26"/>
+        <cable id = "25"/>
+        <cable id = "24"/>
+        <cable id = "23"/>
+        <cable id = "22"/>
+        <cable id = "21"/>
+        <cable id = "20"/>
+        <cable id = "19"/>
+        <cable id = "18"/>
+        <cable id = "17"/>
+        <cable id = "16"/>
+        <cable id = "15"/>
+        <cable id = "14"/>
+        <cable id = "13"/>
+        <cable id = "12"/>
+        <cable id = "11"/>
+        <cable id = "10"/>
+        <cable id = "9"/>
+        <cable id = "8"/>
+        <cable id = "7"/>
+        <cable id = "6"/>
+        <cable id = "5"/>
+        <cable id = "4"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+        <cable id = "0"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_2"> 
+        <cable id = "35"/>
+        <cable id = "34"/>
+        <cable id = "33"/>
+        <cable id = "32"/>
+        <cable id = "31"/>
+        <cable id = "30"/>
+        <cable id = "29"/>
+        <cable id = "28"/>
+        <cable id = "27"/>
+        <cable id = "26"/>
+        <cable id = "25"/>
+        <cable id = "24"/>
+        <cable id = "23"/>
+        <cable id = "22"/>
+        <cable id = "21"/>
+        <cable id = "20"/>
+        <cable id = "19"/>
+        <cable id = "18"/>
+        <cable id = "17"/>
+        <cable id = "16"/>
+        <cable id = "15"/>
+        <cable id = "14"/>
+        <cable id = "13"/>
+        <cable id = "12"/>
+        <cable id = "11"/>
+        <cable id = "10"/>
+        <cable id = "9"/>
+        <cable id = "8"/>
+        <cable id = "7"/>
+        <cable id = "6"/>
+        <cable id = "5"/>
+        <cable id = "4"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+        <cable id = "0"/>
+        <cable id = "36"/>
+        <cable id = "37"/>
+        <cable id = "38"/>
+        <cable id = "39"/>
+        <cable id = "40"/>
+        <cable id = "41"/>
+        <cable id = "42"/>
+        <cable id = "43"/>
+        <cable id = "44"/>
+        <cable id = "45"/>
+        <cable id = "46"/>
+        <cable id = "47"/>
+        <cable id = "48"/>
+        <cable id = "49"/>
+        <cable id = "50"/>
+        <cable id = "51"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_3"> 
+        <cable id = "0"/>
+        <cable id = "36"/>
+        <cable id = "37"/>
+        <cable id = "38"/>
+        <cable id = "39"/>
+        <cable id = "40"/>
+        <cable id = "41"/>
+        <cable id = "42"/>
+        <cable id = "43"/>
+        <cable id = "44"/>
+        <cable id = "45"/>
+        <cable id = "46"/>
+        <cable id = "47"/>
+        <cable id = "48"/>
+        <cable id = "49"/>
+        <cable id = "50"/>
+        <cable id = "51"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_4"> 
+        <cable id = "0"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_5"> 
+        <cable id = "55"/>
+        <cable id = "53"/>
+        <cable id = "52"/>
+        <cable id = "35"/>
+        <cable id = "34"/>
+        <cable id = "33"/>
+        <cable id = "32"/>
+        <cable id = "31"/>
+        <cable id = "30"/>
+        <cable id = "29"/>
+        <cable id = "28"/>
+        <cable id = "27"/>
+        <cable id = "26"/>
+        <cable id = "25"/>
+        <cable id = "24"/>
+        <cable id = "23"/>
+        <cable id = "22"/>
+        <cable id = "21"/>
+        <cable id = "20"/>
+        <cable id = "19"/>
+        <cable id = "18"/>
+        <cable id = "17"/>
+        <cable id = "16"/>
+        <cable id = "15"/>
+        <cable id = "14"/>
+        <cable id = "13"/>
+        <cable id = "12"/>
+        <cable id = "11"/>
+        <cable id = "10"/>
+        <cable id = "9"/>
+        <cable id = "8"/>
+        <cable id = "7"/>
+        <cable id = "6"/>
+        <cable id = "5"/>
+        <cable id = "4"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+        <cable id = "0"/>
+        <cable id = "36"/>
+        <cable id = "37"/>
+        <cable id = "38"/>
+        <cable id = "39"/>
+        <cable id = "40"/>
+        <cable id = "41"/>
+        <cable id = "42"/>
+        <cable id = "43"/>
+        <cable id = "44"/>
+        <cable id = "45"/>
+        <cable id = "46"/>
+        <cable id = "47"/>
+        <cable id = "48"/>
+        <cable id = "49"/>
+        <cable id = "50"/>
+        <cable id = "51"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_6"> 
+        <cable id = "55"/>
+        <cable id = "54"/>
+        <cable id = "35"/>
+        <cable id = "34"/>
+        <cable id = "33"/>
+        <cable id = "32"/>
+        <cable id = "31"/>
+        <cable id = "30"/>
+        <cable id = "29"/>
+        <cable id = "28"/>
+        <cable id = "27"/>
+        <cable id = "26"/>
+        <cable id = "25"/>
+        <cable id = "24"/>
+        <cable id = "23"/>
+        <cable id = "22"/>
+        <cable id = "21"/>
+        <cable id = "20"/>
+        <cable id = "19"/>
+        <cable id = "18"/>
+        <cable id = "17"/>
+        <cable id = "16"/>
+        <cable id = "15"/>
+        <cable id = "14"/>
+        <cable id = "13"/>
+        <cable id = "12"/>
+        <cable id = "11"/>
+        <cable id = "10"/>
+        <cable id = "9"/>
+        <cable id = "8"/>
+        <cable id = "7"/>
+        <cable id = "6"/>
+        <cable id = "5"/>
+        <cable id = "4"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+        <cable id = "0"/>
+        <cable id = "36"/>
+        <cable id = "37"/>
+        <cable id = "38"/>
+        <cable id = "39"/>
+        <cable id = "40"/>
+        <cable id = "41"/>
+        <cable id = "42"/>
+        <cable id = "43"/>
+        <cable id = "44"/>
+        <cable id = "45"/>
+        <cable id = "46"/>
+        <cable id = "47"/>
+        <cable id = "48"/>
+        <cable id = "49"/>
+        <cable id = "50"/>
+        <cable id = "51"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_7"> 
+        <cable id = "0"/>
+        <cable id = "36"/>
+        <cable id = "37"/>
+        <cable id = "38"/>
+        <cable id = "39"/>
+        <cable id = "40"/>
+        <cable id = "41"/>
+        <cable id = "42"/>
+        <cable id = "43"/>
+        <cable id = "44"/>
+        <cable id = "45"/>
+        <cable id = "46"/>
+        <cable id = "47"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_8"> 
+        <cable id = "48"/>
+        <cable id = "49"/>
+        <cable id = "50"/>
+        <cable id = "51"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_9"> 
+        <cable id = "36"/>
+        <cable id = "37"/>
+        <cable id = "38"/>
+        <cable id = "39"/>
+        <cable id = "40"/>
+        <cable id = "41"/>
+        <cable id = "42"/>
+        <cable id = "43"/>
+        <cable id = "44"/>
+        <cable id = "45"/>
+        <cable id = "46"/>
+        <cable id = "47"/>
+        <cable id = "48"/>
+        <cable id = "49"/>
+        <cable id = "50"/>
+        <cable id = "51"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_10"> 
+        <cable id = "35"/>
+        <cable id = "34"/>
+        <cable id = "33"/>
+        <cable id = "32"/>
+        <cable id = "31"/>
+        <cable id = "30"/>
+        <cable id = "29"/>
+        <cable id = "28"/>
+        <cable id = "27"/>
+        <cable id = "26"/>
+        <cable id = "25"/>
+        <cable id = "24"/>
+        <cable id = "23"/>
+        <cable id = "22"/>
+        <cable id = "21"/>
+        <cable id = "20"/>
+        <cable id = "19"/>
+        <cable id = "18"/>
+        <cable id = "17"/>
+        <cable id = "16"/>
+        <cable id = "15"/>
+        <cable id = "14"/>
+        <cable id = "13"/>
+        <cable id = "12"/>
+        <cable id = "11"/>
+        <cable id = "10"/>
+        <cable id = "9"/>
+        <cable id = "8"/>
+        <cable id = "7"/>
+        <cable id = "6"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_11"> 
+        <cable id = "5"/>
+        <cable id = "4"/>
+        <cable id = "3"/>
+        <cable id = "2"/>
+        <cable id = "1"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_12"> 
+        <cable id = "55"/>
+        <cable id = "54"/>
+        <cable id = "53"/>
+        <cable id = "52"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_13"> 
+        <cable id = "36"/>
+        <cable id = "37"/>
+        <cable id = "38"/>
+        <cable id = "39"/>
+        <cable id = "40"/>
+        <cable id = "41"/>
+        <cable id = "42"/>
+        <cable id = "43"/>
+      </cablegroup>
+      <cablegroup name="ModelViewParmSubset_14"> 
+        <cable id = "44"/>
+        <cable id = "45"/>
+        <cable id = "46"/>
+        <cable id = "47"/>
+        <cable id = "48"/>
+        <cable id = "49"/>
+        <cable id = "50"/>
+        <cable id = "51"/>
+      </cablegroup>
+      <cablegroup name="OneSecGrp_SectionRef_57"> <!-- Creating a group containing a single section: GrC[0].branch2... -->
+        <cable id = "54"/>
+      </cablegroup>
+      <cablegroup name="OneSecGrp_SectionRef_58"> <!-- Creating a group containing a single section: GrC[0].branch1... -->
+        <cable id = "53"/>
+      </cablegroup>
+      <cablegroup name="OneSecGrp_SectionRef_59"> <!-- Creating a group containing a single section: GrC[0].branch0... -->
+        <cable id = "52"/>
+      </cablegroup>
+      <cablegroup name="OneSecGrp_SectionRef_95"> <!-- Creating a group containing a single section: GrC[0].soma... -->
+        <cable id = "0"/>
+      </cablegroup>
+    </cables>
+  </cell>
+</cells>
+</neuroml>
