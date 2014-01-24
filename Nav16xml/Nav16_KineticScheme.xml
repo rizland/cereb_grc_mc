@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:meta="http://morphml.org/metadata/schema"
+       xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+       units="Physiological Units">
+
+    <meta:notes>ChannelML file containing a single Channel description from Diwakar et al 2009</meta:notes>
+
+    <channel_type name="Nav_16">
+
+        <status value = "stable">
+            <meta:comment>Note: only mapping available is to NEURON mod file.</meta:comment>
+            <meta:contributor>
+                <meta:name>Martina Rizza - Stefano Masoli</meta:name>
+            </meta:contributor>
+        </status>
+
+        <meta:notes>Nav_16 type Na+ multistate, based on mod file supplied with Diwakar et al 2009 (ModelDB 116835)</meta:notes>
+
+
+        <meta:authorList>
+            <meta:modelAuthor>
+                <meta:name>Shyam Diwakar</meta:name>
+                <meta:comment>Cited implementer according to the original .mod file. Note from original mod file: Based on Raman 13 state model,
+		  adapted from Magistretti et al, J Physiol 2006</meta:comment>
+            </meta:modelAuthor>
+
+            <meta:modelAuthor>
+                <meta:name>Jacopo Magistretti</meta:name>
+                <meta:comment>Cited implementer according to the original .mod file. Note from original mod file: Based on Raman 13 state model,
+		  adapted from Magistretti et al, J Physiol 2006 </meta:comment>
+            </meta:modelAuthor>
+
+             <meta:modelAuthor>
+                <meta:name>Egidio D'Angelo</meta:name>
+                <meta:comment>Cited implementer according to the original .mod file. Note from original mod file: Based on Raman 13 state model,
+		  adapted from Magistretti et al, J Physiol 2006 </meta:comment>
+            </meta:modelAuthor>
+
+            <meta:modelTranslator>
+                <meta:name>Martina Rizza</meta:name>
+                <meta:institution>UNIPV</meta:institution>
+                <meta:email>marti.rizza - at - gmail.com</meta:email>
+            </meta:modelTranslator>
+
+            <meta:modelTranslator>
+                <meta:name>Stefamo Masoli</meta:name>
+                <meta:institution>UNIPV</meta:institution>
+                <meta:email>Bremen - at - fastwebnet.it</meta:email>
+            </meta:modelTranslator>
+            
+        </meta:authorList>
+
+         <meta:publication>
+            <meta:fullTitle>Diwakar S, Magistretti J, Goldfarb M, Naldi G, D`Angelo E (2009) Axonal Na+ channels ensure fast spike 
+	      activation and back-propagation in cerebellar granule cells J Neurophysiol 101(2):519-32</meta:fullTitle>
+            <meta:pubmedRef>http://www.ncbi.nlm.nih.gov/pubmed/19073816?dopt=Abstract</meta:pubmedRef>
+        </meta:publication>
+
+        <meta:neuronDBref>
+            <meta:modelName>Na channels</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/neurondb/channelGene2.aspx#table2</meta:uri>
+        </meta:neuronDBref>
+
+        <meta:modelDBref>
+            <meta:modelName>Multicompartmental cerebellar granule cell model (Diwakar et al. 2009)</meta:modelName>
+            <meta:uri>http://senselab.med.yale.edu/modeldb/ShowModel.asp?model=116835</meta:uri>
+        </meta:modelDBref>
+
+        <parameters>
+            <parameter name="Aalfa" value="353.91"/>
+            <parameter name="Valfa" value="13.99"/>
+            <parameter name="Abeta" value="1.272"/>
+
+            <parameter name="Vbeta" value="13.99"/>
+            <parameter name="Agamma" value="150"/>
+            <parameter name="Adelta" value="40"/>
+            <parameter name="Aepsilon" value="1.75"/>
+
+            <parameter name="Ateta" value="0.0201"/>
+            <parameter name="Vteta" value="25"/>
+            <parameter name="Acon" value="0.005"/>
+            <parameter name="Acoff" value="0.5"/>
+	    <parameter name="AOon" value="0.75"/>
+	    <parameter name="AOoff" value="0.005"/>
+	    
+	    <parameter name="n1" value="5.422"/>
+	    <parameter name="n2" value="3.279"/>
+	    <parameter name="n3" value="1.83"/>
+	    <parameter name="n4" value="0.738"/>
+	    
+	    
+        </parameters>
+
+        <current_voltage_relation cond_law="ohmic" ion="Na" default_gmax="0.013" default_erev="87.39">
+
+           
+
+            <q10_settings q10_factor="3" experimental_temp="20"/>
+
+            <gate name="n" instances="1">
+                
+		<closed_state id="c1"/>
+		<closed_state id="c2"/>
+		<closed_state id="c3"/>
+		<closed_state id="c4"/>
+		<closed_state id="c5"/>
+		
+		<closed_state id="i1"/>
+		<closed_state id="i2"/>
+		<closed_state id="i3"/>
+		<closed_state id="i4"/>
+		<closed_state id="i5"/>
+		<closed_state id="i6"/>
+		
+		<open_state id="o"/>
+                <open_state id="ob"/>
+                     
+                <transition name="c1_c2" from="c1" to="c2" expr_form="generic" expr="n1*Q10*Aalfa*exp(v/Valfa)"/>
+                <transition name="c2_c1" from="c2" to="c1" expr_form="generic" expr="n4*Q10*Abeta*exp(-v/Vbeta)"/>
+
+                <transition name="c2_c3" from="c2" to="c3" expr_form="generic" expr="n2*Q10*Aalfa*exp(v/Valfa)"/>
+                <transition name="c3_c2" from="c3" to="c2" expr_form="generic" expr="n3*Q10*Aalfa*exp(v/Valfa)"/>
+
+                <transition name="c3_c4" from="c3" to="c4" expr_form="generic" expr="n3*Q10*Aalfa*exp(v/Valfa)"/>
+                <transition name="c4_c3" from="c4" to="c3" expr_form="generic" expr="n2*Q10*Abeta*exp(-v/Vbeta)"/>
+
+                <transition name="c4_c5" from="c4" to="c5" expr_form="generic" expr="n4*Q10*Aalfa*exp(v/Valfa)"/>
+                <transition name="c5_c4" from="c5" to="c4" expr_form="generic" expr="n1*Q10*Aalfa*exp(v/Valfa)"/>
+
+                <transition name="c5_o" from="c5" to="o" expr_form="generic" expr="Q10*Agamma"/>
+                <transition name="o_c5" from="o" to="c5" expr_form="generic" expr="Q10*Adelta"/>
+		
+		<transition name="o_ob" from="o" to="ob" expr_form="generic" expr="Q10*Aepsilon"/>
+                <transition name="ob_o" from="ob" to="o" expr_form="generic" expr="Q10*Ateta*exp(-v/Vteta)"/>
+		
+                <transition name="i1_i2" from="i1" to="i2" expr_form="generic" expr="n1*Q10*Aalfa*exp(v/Valfa)*(Oon/Con)^0.25"/>
+                <transition name="i2_i1" from="i2" to="i1" expr_form="generic" expr="n4*Q10*Abeta*exp(-v/Vbeta)*(Ooff/Coff)^0.25"/>
+		
+		<transition name="i2_i3" from="i2" to="i3" expr_form="generic" expr="n2*Q10*Aalfa*exp(v/Valfa)*(Oon/Con)^0.25"/>
+                <transition name="i3_i2" from="i3" to="i2" expr_form="generic" expr="n3*Q10*Abeta*exp(-v/Vbeta)*(Ooff/Coff)^0.25"/>
+		
+		<transition name="i3_i4" from="i3" to="i4" expr_form="generic" expr="n3*Q10*Aalfa*exp(v/Valfa)*(Oon/Con)^0.25"/>
+                <transition name="i4_i3" from="i4" to="i3" expr_form="generic" expr="n2*Q10*Abeta*exp(-v/Vbeta)*(Ooff/Coff)^0.25"/>
+		
+		<transition name="i4_i5" from="i4" to="i5" expr_form="generic" expr="n4*Q10*Aalfa*exp(v/Valfa)*(Oon/Con)^0.25"/>
+                <transition name="i5_i4" from="i5" to="i4" expr_form="generic" expr="n1*Q10*Abeta*exp(-v/Vbeta)*(Ooff/Coff)^0.25"/>
+		
+		<transition name="i5_i6" from="i5" to="i6" expr_form="generic" expr="Q10*Agamma"/>
+                <transition name="i6_i5" from="i6" to="i5" expr_form="generic" expr="Q10*Adelta"/>
+		
+		<transition name="c1_i1" from="c1" to="i1" expr_form="generic" expr="Q10 * ACon"/>
+                <transition name="i1_c1" from="i1" to="c1" expr_form="generic" expr="Q10 * ACoff"/>
+		
+		<transition name="c2_i2" from="c2" to="i2" expr_form="generic" expr="Q10 * ACon*(Oon/Con)^0.25"/>
+                <transition name="i2_c2" from="i2" to="c2" expr_form="generic" expr="Q10 * ACoff*(Ooff/Coff)^0.25"/>
+		
+		<transition name="c3_i3" from="c3" to="i3" expr_form="generic" expr="Q10 * ACon*(Oon/Con)^0.25^2"/>
+                <transition name="i3_c3" from="i3" to="c3" expr_form="generic" expr="Q10 * ACoff*(Ooff/Coff)^0.25^2"/>
+		
+		<transition name="c4_i4" from="c4" to="i4" expr_form="generic" expr="Q10 * ACon*(Oon/Con)^0.25^3"/>
+                <transition name="i4_c4" from="i4" to="c4" expr_form="generic" expr="Q10 * ACoff*(Ooff/Coff)^0.25^3"/>
+		
+		<transition name="c5_i5" from="c5" to="i5" expr_form="generic" expr="Q10 * ACon*(Oon/Con)^0.25^4"/>
+                <transition name="i5_c5" from="i5" to="c5" expr_form="generic" expr="Q10 * ACoff*(Ooff/Coff)^0.25^4"/>
+		
+		<transition name="o_i6" from="o" to="i6" expr_form="generic" expr="Q10 * AOon"/>
+                <transition name="i6_o" from="i6" to="o" expr_form="generic" expr="Q10 * AOoff"/>
+		
+		</gate>
+        </current_voltage_relation> 
+        
+    </channel_type>
+        
+</channelml>
