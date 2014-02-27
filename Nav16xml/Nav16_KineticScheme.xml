@@ -80,8 +80,8 @@
 
             <parameter name="Ateta" value="0.0201"/>
             <parameter name="Vteta" value="25"/>
-            <parameter name="Acon" value="0.005"/>
-            <parameter name="Acoff" value="0.5"/>
+            <parameter name="ACon" value="0.005"/>
+            <parameter name="ACoff" value="0.5"/>
 	    <parameter name="AOon" value="0.75"/>
 	    <parameter name="AOoff" value="0.005"/>
 	    
@@ -89,11 +89,12 @@
 	    <parameter name="n2" value="3.279"/>
 	    <parameter name="n3" value="1.83"/>
 	    <parameter name="n4" value="0.738"/>
-	    
+	   
+	   
 	    
         </parameters>
 
-        <current_voltage_relation cond_law="ohmic" ion="Na" default_gmax="0.013" default_erev="87.39">
+        <current_voltage_relation cond_law="ohmic" ion="Na" default_gmax="13" default_erev="87.39">
 
            
 
@@ -119,56 +120,56 @@
 		<open_state id="o"/>
                 
                      
-                <transition name="c1_c2" from="c1" to="c2" expr_form="generic" expr="n1*Q10*Aalfa*exp(v/Valfa)"/>
-                <transition name="c2_c1" from="c2" to="c1" expr_form="generic" expr="n4*Q10*Abeta*exp(-v/Vbeta)"/>
+                <transition name="c1_c2" from="c1" to="c2" expr_form="generic" expr="n1*Aalfa*exp(v/Valfa)"/>
+                <transition name="c2_c1" from="c2" to="c1" expr_form="generic" expr="n4*Abeta*exp(-v/Vbeta)"/>
 
-                <transition name="c2_c3" from="c2" to="c3" expr_form="generic" expr="n2*Q10*Aalfa*exp(v/Valfa)"/>
-                <transition name="c3_c2" from="c3" to="c2" expr_form="generic" expr="n3*Q10*Aalfa*exp(v/Valfa)"/>
+                <transition name="c2_c3" from="c2" to="c3" expr_form="generic" expr="n2*Aalfa*exp(v/Valfa)"/>
+                <transition name="c3_c2" from="c3" to="c2" expr_form="generic" expr="n3*Aalfa*exp(v/Valfa)"/>
 
-                <transition name="c3_c4" from="c3" to="c4" expr_form="generic" expr="n3*Q10*Aalfa*exp(v/Valfa)"/>
-                <transition name="c4_c3" from="c4" to="c3" expr_form="generic" expr="n2*Q10*Abeta*exp(-v/Vbeta)"/>
+                <transition name="c3_c4" from="c3" to="c4" expr_form="generic" expr="n3*Aalfa*exp(v/Valfa)"/>
+                <transition name="c4_c3" from="c4" to="c3" expr_form="generic" expr="n2*Abeta*exp(-v/Vbeta)"/>
 
-                <transition name="c4_c5" from="c4" to="c5" expr_form="generic" expr="n4*Q10*Aalfa*exp(v/Valfa)"/>
-                <transition name="c5_c4" from="c5" to="c4" expr_form="generic" expr="n1*Q10*Aalfa*exp(v/Valfa)"/>
+                <transition name="c4_c5" from="c4" to="c5" expr_form="generic" expr="n4*Aalfa*exp(v/Valfa)"/>
+                <transition name="c5_c4" from="c5" to="c4" expr_form="generic" expr="n1*Aalfa*exp(v/Valfa)"/>
 
-                <transition name="c5_o" from="c5" to="o" expr_form="generic" expr="Q10*Agamma"/>
-                <transition name="o_c5" from="o" to="c5" expr_form="generic" expr="Q10*Adelta"/>
+                <transition name="c5_o" from="c5" to="o" expr_form="generic" expr="Agamma"/>
+                <transition name="o_c5" from="o" to="c5" expr_form="generic" expr="Adelta"/>
 		
-		<transition name="o_ob" from="o" to="ob" expr_form="generic" expr="Q10*Aepsilon"/>
-                <transition name="ob_o" from="ob" to="o" expr_form="generic" expr="Q10*Ateta*exp(-v/Vteta)"/>
+		<transition name="o_ob" from="o" to="ob" expr_form="generic" expr="Aepsilon"/>
+                <transition name="ob_o" from="ob" to="o" expr_form="generic" expr="Ateta*exp(-v/Vteta)"/>
 		
-                <transition name="i1_i2" from="i1" to="i2" expr_form="generic" expr="n1*Q10*Aalfa*exp(v/Valfa)*(Oon/Con)^0.25"/>
-                <transition name="i2_i1" from="i2" to="i1" expr_form="generic" expr="n4*Q10*Abeta*exp(-v/Vbeta)*(Ooff/Coff)^0.25"/>
+                <transition name="i1_i2" from="i1" to="i2" expr_form="generic" expr="n1*Aalfa*exp(v/Valfa)*(AOon/ACon)^0.25"/>
+                <transition name="i2_i1" from="i2" to="i1" expr_form="generic" expr="n4*Abeta*exp(-v/Vbeta)*(AOoff/ACoff)^0.25"/>
 		
-		<transition name="i2_i3" from="i2" to="i3" expr_form="generic" expr="n2*Q10*Aalfa*exp(v/Valfa)*(Oon/Con)^0.25"/>
-                <transition name="i3_i2" from="i3" to="i2" expr_form="generic" expr="n3*Q10*Abeta*exp(-v/Vbeta)*(Ooff/Coff)^0.25"/>
+		<transition name="i2_i3" from="i2" to="i3" expr_form="generic" expr="n2*Aalfa*exp(v/Valfa)*(AOon/ACon)^0.25"/>
+                <transition name="i3_i2" from="i3" to="i2" expr_form="generic" expr="n3*Abeta*exp(-v/Vbeta)*(AOoff/ACoff)^0.25"/>
 		
-		<transition name="i3_i4" from="i3" to="i4" expr_form="generic" expr="n3*Q10*Aalfa*exp(v/Valfa)*(Oon/Con)^0.25"/>
-                <transition name="i4_i3" from="i4" to="i3" expr_form="generic" expr="n2*Q10*Abeta*exp(-v/Vbeta)*(Ooff/Coff)^0.25"/>
+		<transition name="i3_i4" from="i3" to="i4" expr_form="generic" expr="n3*Aalfa*exp(v/Valfa)*(AOon/ACon)^0.25"/>
+                <transition name="i4_i3" from="i4" to="i3" expr_form="generic" expr="n2*Abeta*exp(-v/Vbeta)*(AOoff/ACoff)^0.25"/>
 		
-		<transition name="i4_i5" from="i4" to="i5" expr_form="generic" expr="n4*Q10*Aalfa*exp(v/Valfa)*(Oon/Con)^0.25"/>
-                <transition name="i5_i4" from="i5" to="i4" expr_form="generic" expr="n1*Q10*Abeta*exp(-v/Vbeta)*(Ooff/Coff)^0.25"/>
+		<transition name="i4_i5" from="i4" to="i5" expr_form="generic" expr="n4*Aalfa*exp(v/Valfa)*(AOon/ACon)^0.25"/>
+                <transition name="i5_i4" from="i5" to="i4" expr_form="generic" expr="n1*Abeta*exp(-v/Vbeta)*(AOoff/ACoff)^0.25"/>
 		
-		<transition name="i5_i6" from="i5" to="i6" expr_form="generic" expr="Q10*Agamma"/>
-                <transition name="i6_i5" from="i6" to="i5" expr_form="generic" expr="Q10*Adelta"/>
+		<transition name="i5_i6" from="i5" to="i6" expr_form="generic" expr="Agamma"/>
+                <transition name="i6_i5" from="i6" to="i5" expr_form="generic" expr="Adelta"/>
 		
-		<transition name="c1_i1" from="c1" to="i1" expr_form="generic" expr="Q10 * ACon"/>
-                <transition name="i1_c1" from="i1" to="c1" expr_form="generic" expr="Q10 * ACoff"/>
+		<transition name="c1_i1" from="c1" to="i1" expr_form="generic" expr="ACon"/>
+                <transition name="i1_c1" from="i1" to="c1" expr_form="generic" expr="ACoff"/>
 		
-		<transition name="c2_i2" from="c2" to="i2" expr_form="generic" expr="Q10 * ACon*(Oon/Con)^0.25"/>
-                <transition name="i2_c2" from="i2" to="c2" expr_form="generic" expr="Q10 * ACoff*(Ooff/Coff)^0.25"/>
+		<transition name="c2_i2" from="c2" to="i2" expr_form="generic" expr="ACon*(AOon/ACon)^0.25"/>
+                <transition name="i2_c2" from="i2" to="c2" expr_form="generic" expr="ACoff*(AOoff/ACoff)^0.25"/>
 		
-		<transition name="c3_i3" from="c3" to="i3" expr_form="generic" expr="Q10 * ACon*(Oon/Con)^0.25^2"/>
-                <transition name="i3_c3" from="i3" to="c3" expr_form="generic" expr="Q10 * ACoff*(Ooff/Coff)^0.25^2"/>
+		<transition name="c3_i3" from="c3" to="i3" expr_form="generic" expr="ACon*(AOon/ACon)^0.25^2"/>
+                <transition name="i3_c3" from="i3" to="c3" expr_form="generic" expr="ACoff*(AOoff/ACoff)^0.25^2"/>
 		
-		<transition name="c4_i4" from="c4" to="i4" expr_form="generic" expr="Q10 * ACon*(Oon/Con)^0.25^3"/>
-                <transition name="i4_c4" from="i4" to="c4" expr_form="generic" expr="Q10 * ACoff*(Ooff/Coff)^0.25^3"/>
+		<transition name="c4_i4" from="c4" to="i4" expr_form="generic" expr="ACon*(AOon/ACon)^0.25^3"/>
+                <transition name="i4_c4" from="i4" to="c4" expr_form="generic" expr="ACoff*(AOoff/ACoff)^0.25^3"/>
 		
-		<transition name="c5_i5" from="c5" to="i5" expr_form="generic" expr="Q10 * ACon*(Oon/Con)^0.25^4"/>
-                <transition name="i5_c5" from="i5" to="c5" expr_form="generic" expr="Q10 * ACoff*(Ooff/Coff)^0.25^4"/>
+		<transition name="c5_i5" from="c5" to="i5" expr_form="generic" expr="ACon*(AOon/ACon)^0.25^4"/>
+                <transition name="i5_c5" from="i5" to="c5" expr_form="generic" expr="ACoff*(AOoff/ACoff)^0.25^4"/>
 		
-		<transition name="o_i6" from="o" to="i6" expr_form="generic" expr="Q10 * AOon"/>
-                <transition name="i6_o" from="i6" to="o" expr_form="generic" expr="Q10 * AOoff"/>
+		<transition name="o_i6" from="o" to="i6" expr_form="generic" expr="AOon"/>
+                <transition name="i6_o" from="i6" to="o" expr_form="generic" expr="AOoff"/>
 		
 		</gate>
         </current_voltage_relation> 
